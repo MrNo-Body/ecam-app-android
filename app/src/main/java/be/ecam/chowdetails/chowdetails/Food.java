@@ -19,21 +19,23 @@ public class Food {
     private String URL_picture;
     private String ingredients;
 
-    public static void parse(String json) throws JSONException {
+    public void parse(String json) throws JSONException {
         JSONObject jsonFood = new JSONObject(json);
-        JSONArray jsonCategories = jsonFood.getJSONObject("product").getJSONArray("categories_prev_hierarchy");
+        JSONArray jsonCategories = jsonFood.getJSONObject("product").getJSONArray("categories_hierarchy");
 
-        String id = jsonFood.getJSONObject("product").getString("_id");
-        String name = jsonFood.getJSONObject("product").getString("generic_name_fr");
-        String brand = jsonFood.getJSONObject("product").getString("brands_debug_tags");
-        String URL_picture = jsonFood.getJSONObject("product").getString("image_front_url");
-        String ingredients = jsonFood.getJSONObject("product").getString("ingredients_text_debug");
+        id = jsonFood.getJSONObject("product").getString("_id");
+        name = jsonFood.getJSONObject("product").getString("product_name");
+        brand = jsonFood.getJSONObject("product").getString("brands_debug_tags");
+        URL_picture = jsonFood.getJSONObject("product").getString("image_front_url");
+        ingredients = jsonFood.getJSONObject("product").getString("ingredients_text_debug");
 
         ArrayList<String> categories = new ArrayList<>();
         for (int i=0; i<jsonCategories.length(); i++) {
             categories.add(jsonCategories.getString(i));
         }
     }
+
+    public Food() {}
 
     public Food(String id, String name, String brand, ArrayList<String> categories,
                 String URL_picture, String ingredients) {
