@@ -5,5 +5,5 @@ Projet ECAM : Application android
 * Christophe Degrelle : Branch = Chris
 * Ismaël El Alami : Branch = IsmaelEl
 * Rémy Taymans
-* Yassine El Jebari
+* Yassine El Jebari : Branch = Yaladdin
 
