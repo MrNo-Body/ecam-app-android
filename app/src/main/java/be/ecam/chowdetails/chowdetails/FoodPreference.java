@@ -3,14 +3,17 @@ package be.ecam.chowdetails.chowdetails;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class FoodMainActivity extends AppCompatActivity {
-    FoodPreference foodpref = new FoodPreference();
-    /*@Override
+/**
+ * Created by 10047 on 18-04-17.
+ */
+
+public class FoodPreference extends AppCompatActivity {
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_main);*/
-
-   foodpref;
+        setContentView(R.layout.preference);
 
     }
+
 }
