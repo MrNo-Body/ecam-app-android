@@ -9,11 +9,16 @@ import android.os.Bundle;
 
 public class FoodPreference extends AppCompatActivity {
 
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.preference);
 
+
+    }*/
+
+    public void affichage (){
+
+        setContentView(R.layout.preference);
     }
 
 }
