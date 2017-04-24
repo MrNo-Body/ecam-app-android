@@ -2,4 +2,6 @@
     <string name="app_name">ChowDetails</string>
     <string name="ActiFood">ActiFood</string>
     <string name="PrefText">Preferences</string>
+    <string name="Menu">Menu</string>
+    <string name="Option">Option</string>
 </resources>
