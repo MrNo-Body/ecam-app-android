@@ -17,17 +17,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/PrefText"
+        android:text="@string/PrefText"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize = "22dp"
+        android:textSize="22dp"
         android:id="@+id/textView1"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/TailleCara"
+        android:text="@string/TailleCara"
         android:layout_below="@+id/textView1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -38,7 +38,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/Color"
+        android:text="@string/Color"
         android:layout_marginTop="18dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/Alergie"
+        android:text="@string/Alergie"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -57,7 +57,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/Photo"
+        android:text="@string/Photo"
         android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -76,7 +76,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/Night"
+        android:text="@string/Night"
         android:layout_below="@+id/checkBoxPhoto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView7"
         android:layout_marginTop="47dp"
-        android:text= "@string/Maj" />
+        android:text="@string/Maj" />
 
     <Spinner
         android:id="@+id/spinner2"
