@@ -7,3 +7,4 @@ Projet ECAM : Application android
 * Rémy Taymans : Branch = remy
 * Yassine El Jebari : Branch = Yaladdin
 
+
