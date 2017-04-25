@@ -1,5 +1,6 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -28,13 +29,10 @@ public class FoodDetailsActivity extends AppCompatActivity {
         TextView ingredients = (TextView) findViewById(R.id.ingredients);
 
         // Get the food object
-        /*
         Intent intent = getIntent();
-        Food food = Food.find(intent.getIntExtra(Intent.EXTRA_INDEX, 0));
-        */
+        Food food = FoodList.find(intent.getIntExtra(Intent.EXTRA_INDEX, 0));
 
         // Fill in the textviews
-        /*
         ArrayList<String> categoriesList = food.getCategories();
         String categoriesString = "";
 
@@ -47,7 +45,6 @@ public class FoodDetailsActivity extends AppCompatActivity {
             }
         }
         categories.setText(categoriesString);
-        ingredients.setText(food.ingredients);
-        */
+        ingredients.setText(food.getIngredients());
     }
 }
