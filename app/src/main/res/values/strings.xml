@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ChowDetails</string>
+    <string name="search_H">Recherche</string>
+
 </resources>
