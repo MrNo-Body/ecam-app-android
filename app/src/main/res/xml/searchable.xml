@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_name"
+    android:hint="@string/search_H"
+    android:searchMode="queryRewriteFromData"
+    android:searchButtonText="string resource"
+    android:inputType="text"
+    android:imeOptions="actionSearch"
+    android:searchSuggestAuthority="string"
+    android:searchSuggestSelection="string"
+    android:searchSuggestIntentAction="string"
+    android:searchSuggestIntentData="string"
+    android:searchSuggestThreshold="0"
+    android:includeInGlobalSearch="true"
+    android:searchSettingsDescription="Food, Allergen, etc."
+    android:queryAfterZeroResults="false"
+    >
+<actionkey
+android:keycode="KEYCODE_ZENKAKU_HANKAKU"
+android:queryActionMsg="string"
+android:suggestActionMsg="string"
+android:suggestActionMsgColumn="string" />
+    >
+</searchable>

@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.text.InputType;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,16 +18,26 @@ import android.widget.Toast;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener{
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_main);
+      
+        /* test des differents widget
+        TextView text = new TextView(this);
+        text.setText("poopy");
+        //text.setTextSize(20)
+        setContentView(text);
 
-       /* bouton de test, à supprimer
-       Button button01 = (Button) findViewById(R.id.button01);
-        button01.setOnClickListener(this);*/
+        EditText editText = new EditText(this);
+        editText.setHint(" taper le nom de l'aliment");
+        editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        editText.setLines(5);
+        setContentView(editText);
 
+        Button button = new Button(this);
+        button.setText("button");
+        setContentView(button);*/
     }
 
 
@@ -46,12 +59,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
         }
     }
 
-
-    // un simple bouton de test, à supprimer
     public void onClick(View view) {
-        /*if (view.getId() == R.id.button01) {
-            Toast.makeText(this, "Bouton 01", Toast.LENGTH_SHORT).show();
-        }*/
     }
 }
 

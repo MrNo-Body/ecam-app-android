@@ -10,5 +10,5 @@
     <string name="Photo">Afficher la photo des aliments:</string>
     <string name="Night">Activer le mode nuit:</string>
     <string name="Maj">Mettre à jour la base de donnée?</string>
-
+    <string name="search_H">Recherche</string>
 </resources>
