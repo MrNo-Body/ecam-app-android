@@ -12,9 +12,10 @@ import java.util.ArrayList;
 
 //Si On recoit plusieurs produit
 public class FoodList {
-    private ArrayList<Food> foods;
+    private static ArrayList<Food> foods;
 
-    public void parse(String json) throws JSONException {
+    public static void parse(String json) throws JSONException {
+        foods = new ArrayList<>();
         JSONObject jsonraw = new JSONObject(json);
         JSONArray jsonFoods = jsonraw.getJSONArray("products");
 
@@ -22,10 +23,11 @@ public class FoodList {
             JSONObject jsonFood = jsonFoods.getJSONObject(i);
             Food food = new Food();
             food.parse(jsonFood.toString());
+            foods.add(food);
         }
     }
 
-    public FoodList() {
-        this.foods = new ArrayList<>();
+    public static Food find(int i) {
+        return foods.get(i);
     }
 }
