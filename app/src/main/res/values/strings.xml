@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">ChowDetails</string>
+    <string name="ActiFood">ActiFood</string>
+    <string name="PrefText">Preferences</string>
+    <string name="Menu">Menu</string>
+    <string name="Option">Option</string>
+    <string name="TailleCara">Taille Caractère:</string>
+    <string name="Color">Couleur:</string>
+    <string name="Alergie">Allergies/Intolerance:</string>
+    <string name="Photo">Afficher la photo des aliments:</string>
+    <string name="Night">Activer le mode nuit:</string>
+    <string name="Maj">Mettre à jour la base de donnée?</string>
     <string name="search_H">Recherche</string>
-
 </resources>

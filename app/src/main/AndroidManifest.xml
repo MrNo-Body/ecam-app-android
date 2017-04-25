@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FoodPreference" />
         <!-- Activity Search -->
         <activity android:name=".FoodSearch">
             <meta-data android:name="android.intent.action.searchable"
