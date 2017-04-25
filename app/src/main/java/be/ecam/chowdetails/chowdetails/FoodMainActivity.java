@@ -1,5 +1,7 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,16 +14,17 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener{
-    FoodPreference foodpref = new FoodPreference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_main);
 
-        Button button01 = (Button) findViewById(R.id.button01);
+       /* bouton de test, à supprimer
+       Button button01 = (Button) findViewById(R.id.button01);
+        button01.setOnClickListener(this);*/
 
-        button01.setOnClickListener(this);
     }
 
 
@@ -32,10 +35,11 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.Option:
-                setContentView(R.layout.preference);
+                Class destinationClass = FoodPreference.class;
+                Intent intent = new Intent(this, destinationClass);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -43,10 +47,11 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
     }
 
 
+    // un simple bouton de test, à supprimer
     public void onClick(View view) {
-        if (view.getId() == R.id.button01) {
-            //Toast.makeText(this, "Bouton 1", Toast.LENGTH_SHORT).show();
-            setContentView(R.layout.preference);
-        }
+        /*if (view.getId() == R.id.button01) {
+            Toast.makeText(this, "Bouton 01", Toast.LENGTH_SHORT).show();
+        }*/
     }
 }
+

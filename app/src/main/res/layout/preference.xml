@@ -91,16 +91,24 @@
         android:layout_toRightOf="@+id/textView7"
         android:layout_toEndOf="@+id/textView7" />
 
-    <TextView
+    <Button
+        android:id="@+id/button02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/Maj"
         android:layout_below="@+id/textView7"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/textView8" />
+        android:layout_marginTop="47dp"
+        android:text= "@string/Maj" />
 
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_alignRight="@+id/checkBoxNight"
+        android:layout_alignEnd="@+id/checkBoxNight" />
 
 
 </RelativeLayout>

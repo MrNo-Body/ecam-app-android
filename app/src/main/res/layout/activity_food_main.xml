@@ -16,7 +16,7 @@
         android:text= "@string/ActiFood"
         android:id="@+id/textView" />
 
-    <Button
+   <!-- <Button
         android:id="@+id/button01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,5 +24,5 @@
         android:layout_marginTop="47dp"
         android:layout_toEndOf="@+id/textView"
         android:layout_toRightOf="@+id/textView"
-        android:text="Preference" />
+        android:text="Preference" />-->
 </RelativeLayout>
