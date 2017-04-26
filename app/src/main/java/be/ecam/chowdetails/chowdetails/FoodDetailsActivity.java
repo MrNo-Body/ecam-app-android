@@ -1,8 +1,11 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -10,13 +13,6 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity {
-    /* id
-    name
-    brand
-    categories
-    URL_picture
-    ingredients
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,4 +45,20 @@ public class FoodDetailsActivity extends AppCompatActivity {
         categories.setText("Categories: " + categoriesString);
         ingredients.setText("Ingredients: " + food.getIngredients());
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemThatWasClickedId = item.getItemId();
+        if (itemThatWasClickedId == R.id.Favorite) {
+            // Mark this product as a favorite one.
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
