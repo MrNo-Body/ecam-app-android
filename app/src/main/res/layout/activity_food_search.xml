@@ -12,7 +12,15 @@
 
 <ListView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@android:style/Widget.DeviceDefault.ExpandableListView"
+    android:headerDividersEnabled="true">
 
 </ListView>
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="47dp" />
 </RelativeLayout>
