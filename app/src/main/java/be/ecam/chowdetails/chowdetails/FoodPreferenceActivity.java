@@ -16,7 +16,7 @@ import android.view.View.OnClickListener;
  * Created by 10047 on 18-04-17.
  */
 
-public class FoodPreference extends AppCompatActivity implements OnClickListener{
+public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FoodPreference" />
+        <activity android:name=".FoodPreferenceActivity" />
         <!-- Activity Search -->
-        <activity android:name=".FoodSearch">
+        <activity android:name=".FoodSearchActivity">
             <meta-data android:name="android.intent.action.searchable"
                        android:resource="@xml/searchable"/>
             <intent-filter>

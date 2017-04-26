@@ -2,23 +2,15 @@ package be.ecam.chowdetails.chowdetails;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
-import android.text.InputType;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.view.MenuItem;
-import android.app.Activity;
 import android.view.View.OnClickListener;
-
-import java.util.ArrayList;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener{
 
@@ -42,7 +34,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.Option:
-                Class destinationClass = FoodPreference.class;
+                Class destinationClass = FoodPreferenceActivity.class;
                 Intent intent = new Intent(this, destinationClass);
                 startActivity(intent);
                 return true;
@@ -58,7 +50,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
         if (view.getId() == R.id.butfind)
         {
             EditText search = (EditText) findViewById(R.id.search);
-            destinationClass = FoodSearch.class;
+            destinationClass = FoodSearchActivity.class;
             Intent intent = new Intent(context, destinationClass);
 
             // Pass info to the FoodSearchActivity
@@ -68,7 +60,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
         }
         if (view.getId() == R.id.butfavoris)
         {
-            destinationClass = FoodListFavorite.class;
+            destinationClass = FoodFavoriteActivity.class;
             Intent intent = new Intent(context, destinationClass);
             startActivity(intent);
         }
