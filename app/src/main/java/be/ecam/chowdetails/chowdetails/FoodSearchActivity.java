@@ -1,6 +1,5 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -8,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class FoodSearch extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
+public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
 
     private static final String API_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
 
@@ -62,7 +60,7 @@ public class FoodSearch extends AppCompatActivity implements ItemAdapter.ItemAda
             search_term = "";
         }
 
-        Toast.makeText(FoodSearch.this, "Searching...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(FoodSearchActivity.this, "Searching...", Toast.LENGTH_SHORT).show();
         new QueryTask().execute(API_BASE_URL + "?search_terms=" + search_term  +
                 "&search_simple=1&action=process&json=1");
 

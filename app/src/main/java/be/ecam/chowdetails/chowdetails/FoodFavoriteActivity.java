@@ -10,7 +10,7 @@ import android.widget.SimpleCursorAdapter;
  * Created by yas on 25/04/2017.
  */
 
-public class FoodListFavorite extends ListActivity {
+public class FoodFavoriteActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
