@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+ xmlns:android="http://schemas.android.com/apk/res/android">
    <!-- <item android:id="@+id/expanded_menu"
 
     android:title="@string/Menu"
@@ -8,6 +9,13 @@
     <item android:id="@+id/Option"
         android:title="@string/Option"
         />
+    <item
+        android:id="@+id/search_button"
+        android:title="@string/search_H"
+        android:icon="@mipmap/ic_launcher"
+        android:showAsAction="collapseActionView"
+        android:actionViewClass="android.widget.SearchView"
+        tools:ignore="AppCompatResource" />
        <!-- android:showAsAction="ifRoom"-->
 
 </menu>
