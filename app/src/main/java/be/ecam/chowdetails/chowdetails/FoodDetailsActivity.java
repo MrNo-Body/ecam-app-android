@@ -36,15 +36,17 @@ public class FoodDetailsActivity extends AppCompatActivity {
         ArrayList<String> categoriesList = food.getCategories();
         String categoriesString = "";
 
-        name.setText(food.getName());
-        brand.setText(food.getBrand());
-        for (int i = 0; i < categoriesList.size(); i++) {
-            categoriesString += categoriesList.get(i);
-            if (i < categoriesList.size()) {
-                categoriesString += ", ";
+        name.setText("Name: " + food.getName());
+        brand.setText("Brand: " + food.getBrand());
+        if (categoriesList != null) {
+            for (int i = 0; i < categoriesList.size(); i++) {
+                categoriesString += categoriesList.get(i);
+                if (i < categoriesList.size()) {
+                    categoriesString += ", ";
+                }
             }
         }
-        categories.setText(categoriesString);
-        ingredients.setText(food.getIngredients());
+        categories.setText("Categories: " + categoriesString);
+        ingredients.setText("Ingredients: " + food.getIngredients());
     }
 }

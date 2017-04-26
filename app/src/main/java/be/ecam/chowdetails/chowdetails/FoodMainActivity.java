@@ -2,8 +2,10 @@ package be.ecam.chowdetails.chowdetails;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 import android.view.MenuItem;
 import android.app.Activity;
 import android.view.View.OnClickListener;
+
+import java.util.ArrayList;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener{
 
@@ -49,15 +53,26 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
 
     public void onClick(View view)
     {
+        Context context = this;
+        Class destinationClass;
         if (view.getId() == R.id.butfind)
         {
-            Toast.makeText(this, "page de ismael", Toast.LENGTH_SHORT).show();
-            setContentView(R.layout.activity_food_search);
+            EditText search = (EditText) findViewById(R.id.search);
+            destinationClass = FoodSearch.class;
+            Intent intent = new Intent(context, destinationClass);
+
+            // Pass info to the FoodSearchActivity
+            intent.putExtra("SEARCH_TERM", search.getText().toString());
+
+            startActivity(intent);
         }
         if (view.getId() == R.id.butfavoris)
         {
-            Toast.makeText(this, "page de favoris", Toast.LENGTH_SHORT).show();
-            setContentView(R.layout.activity_food_favorite);
+            destinationClass = FoodListFavorite.class;
+            Intent intent = new Intent(context, destinationClass);
+            startActivity(intent);
         }
     }
+
+
 }

@@ -21,13 +21,13 @@ public class Food {
 
     public void parse(String json) throws JSONException {
         JSONObject jsonFood = new JSONObject(json);
-        JSONArray jsonCategories = jsonFood.getJSONObject("product").getJSONArray("categories_hierarchy");
+        JSONArray jsonCategories = jsonFood.getJSONArray("categories_hierarchy");
 
-        id = jsonFood.getJSONObject("product").getString("_id");
-        name = jsonFood.getJSONObject("product").getString("product_name");
-        brand = jsonFood.getJSONObject("product").getString("brands_debug_tags");
-        URL_picture = jsonFood.getJSONObject("product").getString("image_front_url");
-        ingredients = jsonFood.getJSONObject("product").getString("ingredients_text_debug");
+        id = jsonFood.getString("_id");
+        name = jsonFood.getString("product_name");
+        brand = jsonFood.getString("brands");
+        URL_picture = jsonFood.getString("image_front_url");
+        ingredients = jsonFood.getString("ingredients_text_debug");
 
         ArrayList<String> categories = new ArrayList<>();
         for (int i=0; i<jsonCategories.length(); i++) {
