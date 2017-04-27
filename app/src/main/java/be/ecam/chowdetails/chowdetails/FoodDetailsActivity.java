@@ -62,6 +62,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
 
         addListenerOnButton();
     }
+    //Listen the button's state
     public void addListenerOnButton() {
 
         toggleButton2 = (ToggleButton) findViewById(R.id.toggleButton2);
