@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingLeft="8dp"
-android:paddingRight="8dp">
-
-<ListView android:id="@android:id/list"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FF00"
-    android:layout_weight="1"
-    android:drawSelectorOnTop="false"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp">
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        tools:background="#AAA"
+        />
 
-<TextView android:id="@android:id/empty"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FF0000"
-    android:text="No data"/>
-</LinearLayout>
+    <TextView
+        android:id="@+id/foodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/picture"
+        android:layout_alignTop="@+id/picture"
+        android:textStyle="bold"
+        tools:text="Pseudo"
+        />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_alignLeft="@+id/foodName"
+        android:layout_below="@+id/foodName"
+        tools:text="Texte de mon tweet"
+        />
+    <ListView android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FF00"/>
+        android:layout_weight="1"
+        android:drawSelectorOnTop="false"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/resultView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--android:orientation="vertical"
+    android:padding="8dp"
+    android:paddingRight="8dp"
+    -->
+
+    <!--<TextView android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0000"
+        android:text="No data"/-->
+    </RelativeLayout>

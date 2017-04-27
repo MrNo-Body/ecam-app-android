@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
@@ -17,6 +22,10 @@ public class FoodDetailsActivity extends AppCompatActivity {
     URL_picture
     ingredients
      */
+    //To use toggle button
+    private ToggleButton toggleButton2;
+    private Button btnDisplay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +57,30 @@ public class FoodDetailsActivity extends AppCompatActivity {
         }
         categories.setText("Categories: " + categoriesString);
         ingredients.setText("Ingredients: " + food.getIngredients());
+
+        //To Use Toggle button
+
+        addListenerOnButton();
+    }
+    public void addListenerOnButton() {
+
+        toggleButton2 = (ToggleButton) findViewById(R.id.toggleButton2);
+        btnDisplay = (Button) findViewById(R.id.btnDisplay);
+
+        btnDisplay.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                StringBuffer result = new StringBuffer();
+                result.append("\ntoggleButton2 : ").append(toggleButton2.getText());
+
+                Toast.makeText(FoodDetailsActivity.this, result.toString(),
+                        Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+
     }
 }

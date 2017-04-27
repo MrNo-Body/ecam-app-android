@@ -29,5 +29,19 @@ android:layout_height="match_parent">
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:padding="16dp"/>
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="dans favoris"
+        android:textOff="pas favoris"
+        android:checked="true" />
+
+    <Button
+        android:id="@+id/btnDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Testafficheur" />
+
 
 </LinearLayout>
