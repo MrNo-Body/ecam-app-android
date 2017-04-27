@@ -70,7 +70,8 @@
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
         android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
+        android:layout_toEndOf="@+id/textView6"
+        android:onClick="onCheckboxClicked"/>
 
 
     <TextView
@@ -89,7 +90,8 @@
         android:layout_alignBaseline="@+id/textView7"
         android:layout_alignBottom="@+id/textView7"
         android:layout_toRightOf="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7" />
+        android:layout_toEndOf="@+id/textView7"
+        android:onClick="onCheckboxClicked"/>
 
     <Button
         android:id="@+id/button02"
@@ -100,7 +102,7 @@
         android:text="@string/Maj" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/colorSpin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView4"
@@ -109,6 +111,25 @@
         android:layout_toRightOf="@+id/textView4"
         android:layout_alignRight="@+id/checkBoxNight"
         android:layout_alignEnd="@+id/checkBoxNight" />
+
+    <Spinner
+        android:id="@+id/tpoliceSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_alignRight="@+id/checkBoxPhoto"
+        android:layout_alignEnd="@+id/checkBoxPhoto" />
+
+    <Spinner
+        android:id="@+id/allergieSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_alignRight="@+id/button02"
+        android:layout_alignEnd="@+id/button02" />
+
 
 
 </RelativeLayout>

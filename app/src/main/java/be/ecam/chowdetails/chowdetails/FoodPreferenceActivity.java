@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,19 +20,45 @@ import android.view.View.OnClickListener;
  * Created by 10047 on 18-04-17.
  */
 //TODO faire des spinners
-public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener{
+public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preference);
 
-       // Intent intent = getIntent();
-
+        // Intent intent = getIntent();
+        //Listener on Button
         Button button02 = (Button) findViewById(R.id.button02);
         button02.setOnClickListener(this);
+
+        //set spinner
+        Spinner ColorSpin = (Spinner) findViewById(R.id.colorSpin);
+        Spinner TpoliceSpin = (Spinner) findViewById(R.id.tpoliceSpin);
+        Spinner AllergieSpin = (Spinner) findViewById(R.id.allergieSpin);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> ColorAdapter = ArrayAdapter.createFromResource(this,
+                R.array.ColorSpinArray, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> PoliceAdapter = ArrayAdapter.createFromResource(this,
+                R.array.TpoliceSpinArray, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> AllergieAdapter = ArrayAdapter.createFromResource(this,
+                R.array.allergieSpinArray, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        ColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        PoliceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        AllergieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        ColorSpin.setAdapter(ColorAdapter);
+        TpoliceSpin.setAdapter(PoliceAdapter);
+        AllergieSpin.setAdapter(AllergieAdapter);
+//Apply Listener on the spinner
+        ColorSpin.setOnItemSelectedListener(this);
+        TpoliceSpin.setOnItemSelectedListener(this);
+        AllergieSpin.setOnItemSelectedListener(this);
     }
 
+
+//----------------Menu-----------------
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -43,6 +73,83 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
                 return super.onOptionsItemSelected(item);
         }
     }
+//----------------Spinner-----------------
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+
+        switch (parent.getItemAtPosition(pos).toString()){
+            case "Petit":
+                //TODO set le text en petit
+                break;
+            case "Normal":
+                //TODO set le text en normal
+                break;
+            case "Grand":
+                //TODO set le text en grand
+                break;
+            case "Bleu":
+                //Todo set en bleu
+                break;
+            case "Rouge":
+                //todo set en rouge
+                break;
+            case "Vert":
+                //todo set en vert
+                break;
+            case "Arachide":
+                //todo set allergie Archadie
+                break;
+            case "Lactose":
+                //todo set allergie Lactose
+                break;
+            case "Gluten":
+                //todo set allergie Gluten
+                break;
+            default:
+                //Todo charger les données de la base de données
+        }
+
+
+    }
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+
+//----------------CheckBox-----------------
+public void onCheckboxClicked(View view) {
+    boolean checked = ((CheckBox) view).isChecked();
+
+    switch(view.getId()) {
+        case R.id.checkBoxNight:
+            if (checked)
+            {
+                //Todo Enregistrer dans BD
+                Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                //todo enregistrer dans BD
+                Toast.makeText(this, "Not Checked", Toast.LENGTH_SHORT).show();
+            }
+            break;
+
+        case R.id.checkBoxPhoto:
+            if (checked)
+            {
+                //todo enregistrer dans BD
+                Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                //todo enregistrer dans BD
+                Toast.makeText(this, "Not Checked", Toast.LENGTH_SHORT).show();
+            }
+
+            break;
+    }
+}
+
+
 
 
     public void onClick(View view) {

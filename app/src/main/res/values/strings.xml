@@ -11,4 +11,23 @@
     <string name="Night">Activer le mode nuit:</string>
     <string name="Maj">Mettre à jour la base de donnée?</string>
     <string name="search_H">Recherche</string>
-</resources>
+
+    <string-array name="ColorSpinArray">
+        <item>Bleu</item>
+        <item>Rouge</item>
+        <item>Vert</item>
+    </string-array>
+
+    <string-array name="TpoliceSpinArray">
+        <item>Petit</item>
+        <item>Normal</item>
+        <item>Grand</item>
+    </string-array>
+
+    <string-array name="allergieSpinArray">
+        <item>Arachide</item>
+        <item>Lactose</item>
+        <item>Gluten</item>
+    </string-array>
+
+    </resources>
