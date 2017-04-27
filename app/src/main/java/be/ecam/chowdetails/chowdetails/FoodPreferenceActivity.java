@@ -15,7 +15,7 @@ import android.view.View.OnClickListener;
 /**
  * Created by 10047 on 18-04-17.
  */
-
+//TODO faire des spinners
 public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener{
 
     @Override
