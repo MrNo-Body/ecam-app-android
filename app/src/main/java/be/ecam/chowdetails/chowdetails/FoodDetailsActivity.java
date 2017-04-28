@@ -1,8 +1,11 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,17 +18,10 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity {
-    /* id
-    name
-    brand
-    categories
-    URL_picture
-    ingredients
-     */
+
     //To use toggle button
     private ToggleButton toggleButton2;
     private Button btnDisplay;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +58,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
 
         addListenerOnButton();
     }
+    
     //Listen the button's state
     public void addListenerOnButton() {
 
@@ -84,4 +81,20 @@ public class FoodDetailsActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemThatWasClickedId = item.getItemId();
+        if (itemThatWasClickedId == R.id.Favorite) {
+            // Mark this product as a favorite one.
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
