@@ -32,27 +32,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Color"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/textView2"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/tpoliceSpin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textView4"/>
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Alergie"
-        android:layout_below="@+id/textView4"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/colorSpin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
-        android:id="@+id/textView5" />
+       />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +63,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="12dp"
-        android:id="@+id/textView6" />
+        android:id="@+id/textView6"
+        />
     <CheckBox
         android:id="@+id/checkBoxPhoto"
         android:layout_width="wrap_content"
@@ -71,18 +73,19 @@
         android:layout_alignBottom="@+id/textView6"
         android:layout_toRightOf="@+id/textView6"
         android:layout_toEndOf="@+id/textView6"
-        android:onClick="onCheckboxClicked"/>
+        android:onClick="onCheckboxClicked"
+        />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Night"
+        android:id="@+id/textView7"
         android:layout_below="@+id/checkBoxPhoto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:id="@+id/textView7" />
+        />
     <CheckBox
         android:id="@+id/checkBoxNight"
         android:layout_width="wrap_content"

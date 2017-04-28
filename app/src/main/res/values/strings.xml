@@ -13,6 +13,7 @@
     <string name="search_H">Recherche</string>
 
     <string-array name="ColorSpinArray">
+        <item>Blanc</item>
         <item>Bleu</item>
         <item>Rouge</item>
         <item>Vert</item>
@@ -25,6 +26,7 @@
     </string-array>
 
     <string-array name="allergieSpinArray">
+        <item> </item>
         <item>Arachide</item>
         <item>Lactose</item>
         <item>Gluten</item>

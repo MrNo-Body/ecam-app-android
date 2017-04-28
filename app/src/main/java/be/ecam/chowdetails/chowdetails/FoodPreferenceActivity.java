@@ -1,6 +1,7 @@
 package be.ecam.chowdetails.chowdetails;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +17,9 @@ import android.widget.Button;
 import android.app.Activity;
 import android.view.View.OnClickListener;
 
-/**
- * Created by 10047 on 18-04-17.
- */
-//TODO faire des spinners
+/*
+* Created by Neil
+* */
 public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Override
@@ -27,6 +27,13 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preference);
 
+        //Todo set le colorbackground de chaque view
+        /*
+        if(CheckBD) set  la couleur de BD
+        this.getWindow().getDecorView().setBackgroundColor(Valeur BD);
+        else
+        rien
+*/
         // Intent intent = getIntent();
         //Listener on Button
         Button button02 = (Button) findViewById(R.id.button02);
@@ -76,8 +83,8 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
 //----------------Spinner-----------------
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-
         switch (parent.getItemAtPosition(pos).toString()){
+
             case "Petit":
                 //TODO set le text en petit
                 break;
@@ -87,14 +94,18 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
             case "Grand":
                 //TODO set le text en grand
                 break;
+            case "Blanc":
+                //TODO setBackgroundColor dans chaque view dans son OnCreate
+                this.getWindow().getDecorView().setBackgroundColor(0xFFFFFFFF);
+                break;
             case "Bleu":
-                //Todo set en bleu
+                this.getWindow().getDecorView().setBackgroundColor(0xFF9696FF);
                 break;
             case "Rouge":
-                //todo set en rouge
+                this.getWindow().getDecorView().setBackgroundColor(0xFFFF4E4A);
                 break;
             case "Vert":
-                //todo set en vert
+                this.getWindow().getDecorView().setBackgroundColor(0xFF6EE89B);
                 break;
             case "Arachide":
                 //todo set allergie Archadie
