@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,9 +21,10 @@ import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity {
 
+    private Food food;
+    private FoodDBHelper food_db;
     //To use toggle button
-    private ToggleButton toggleButton2;
-    private Button btnDisplay;
+    private ToggleButton favorite_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
 
         // Get the food object
         Intent intent = getIntent();
-        Food food = FoodList.find(intent.getIntExtra(Intent.EXTRA_INDEX, 0));
+        food = FoodList.find(intent.getIntExtra(Intent.EXTRA_INDEX, 0));
 
         // Fill in the textviews
         ArrayList<String> categoriesList = food.getCategories();
@@ -54,32 +57,25 @@ public class FoodDetailsActivity extends AppCompatActivity {
         categories.setText("Categories: " + categoriesString);
         ingredients.setText("Ingredients: " + food.getIngredients());
 
-        //To Use Toggle button
+        // To Use Toggle button for favorite
+        favorite_button = (ToggleButton) findViewById(R.id.favorite_button);
+        food_db = new FoodDBHelper(this);
 
-        addListenerOnButton();
-    }
-    
-    //Listen the button's state
-    public void addListenerOnButton() {
+        favorite_button.setChecked(food_db.isInDB(food.getId()));
 
-        toggleButton2 = (ToggleButton) findViewById(R.id.toggleButton2);
-        btnDisplay = (Button) findViewById(R.id.btnDisplay);
-
-        btnDisplay.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                StringBuffer result = new StringBuffer();
-                result.append("\ntoggleButton2 : ").append(toggleButton2.getText());
-
-                Toast.makeText(FoodDetailsActivity.this, result.toString(),
-                        Toast.LENGTH_SHORT).show();
-
+        favorite_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Record the favorite
+                    food_db.insert(food);
+                    Log.w("chowdetails:", "Insert food in db.");
+                } else {
+                    // Delete the favorite
+                    food_db.delete(food.getId());
+                    Log.w("chowdetails:", "Delete food in db.");
+                }
             }
-
         });
-
     }
 
     @Override

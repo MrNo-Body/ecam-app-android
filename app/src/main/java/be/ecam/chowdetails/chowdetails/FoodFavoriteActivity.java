@@ -24,14 +24,37 @@ import java.util.List;
  * Created by yas on 25/04/2017.
  */
 
-public class FoodFavoriteActivity extends AppCompatActivity {
+public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
 
-    private static final String API_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
+    private RecyclerView resultView;
+    private ItemAdapter itemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_favorite);
+
+        resultView = (RecyclerView) findViewById(R.id.resultView);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        resultView.setLayoutManager(layoutManager);
+        resultView.setHasFixedSize(true);
+
+        itemAdapter = new ItemAdapter(this);
+        resultView.setAdapter(itemAdapter);
+
+        FoodDBHelper food_db = new FoodDBHelper(this);
+        FoodList.setFoods(food_db.getFoods());
+
+        itemAdapter.setData(FoodList.getFoods());
     }
 
+    @Override
+    public void onClick(int index) {
+        Context context = this;
+        Class destinationClass = FoodDetailsActivity.class;
+        Intent intent = new Intent(context, destinationClass);
+        intent.putExtra(Intent.EXTRA_INDEX, index);
+        startActivity(intent);
+    }
 }

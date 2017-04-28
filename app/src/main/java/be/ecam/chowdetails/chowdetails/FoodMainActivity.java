@@ -64,8 +64,8 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
             Intent intent = new Intent(context, destinationClass);
 
             //Test pour afficher un aliment dans favoris a partir de la recherche
-            EditText search = (EditText) findViewById(R.id.search);
-            intent.putExtra("SEARCH_TERM", search.getText().toString());
+            //EditText search = (EditText) findViewById(R.id.search);
+            //intent.putExtra("SEARCH_TERM", search.getText().toString());
             startActivity(intent);
         }
     }

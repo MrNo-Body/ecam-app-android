@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -77,6 +78,7 @@ public class FoodDBHelper extends SQLiteOpenHelper {
 
             foods.add(new Food(id, name, brand, null, url_picture, ingredients));
         }
+        cursor.close();
 
         return foods;
     }
@@ -98,7 +100,26 @@ public class FoodDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         return db.delete(
-                FoodContract.FoodEntry.TABLE_NAME, FoodContract.FoodEntry.ID + " = " + id, null
+                FoodContract.FoodEntry.TABLE_NAME, FoodContract.FoodEntry.ID + " = \"" + id + "\"", null
         ) > 0;
+    }
+
+    public boolean isInDB(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                FoodContract.FoodEntry.TABLE_NAME,
+                null,
+                FoodContract.FoodEntry.ID + " = ?",
+                new String[] { id },
+                null,
+                null,
+                FoodContract.FoodEntry.NAME
+        );
+
+        int result = cursor.getCount();
+        cursor.close();
+        return result > 0;
+
     }
 }
