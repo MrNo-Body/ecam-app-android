@@ -27,13 +27,13 @@ public class FoodDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_FOOD_TABLE =
-                "CREATE TABLE " + FoodContract.FoodEntry.TABLE_NAME + " ( " +
+                "CREATE TABLE " + FoodContract.FoodEntry.TABLE_NAME + "(" +
                         FoodContract.FoodEntry.ID + " INTEGER PRIMARY KEY, " +
                         FoodContract.FoodEntry.NAME + " TEXT, " +
                         FoodContract.FoodEntry.BRAND + " TEXT, " +
                         FoodContract.FoodEntry.URL_PICTURE + " TEXT, " +
                         FoodContract.FoodEntry.INGREDIENTS + " TEXT" +
-                        " );";
+                        ");";
         db.execSQL(SQL_CREATE_FOOD_TABLE);
 
     }
