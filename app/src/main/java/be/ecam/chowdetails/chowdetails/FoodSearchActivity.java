@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
         //inflate the options menu from XML
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
+        inflater.inflate(R.menu.menu, menu);
 
         //get the SearchView and set the searchable configuration
         //SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -82,6 +84,18 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
         Intent intent = new Intent(context, destinationClass);
         intent.putExtra(Intent.EXTRA_INDEX, index);
         startActivity(intent);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Option:
+                Class destinationClass = FoodPreferenceActivity.class;
+                Intent intent = new Intent(this, destinationClass);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

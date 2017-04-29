@@ -3,6 +3,9 @@ package be.ecam.chowdetails.chowdetails;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -17,6 +20,11 @@ public class FoodDetailsActivity extends AppCompatActivity {
     URL_picture
     ingredients
      */
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +56,17 @@ public class FoodDetailsActivity extends AppCompatActivity {
         }
         categories.setText("Categories: " + categoriesString);
         ingredients.setText("Ingredients: " + food.getIngredients());
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Option:
+                Class destinationClass = FoodPreferenceActivity.class;
+                Intent intent = new Intent(this, destinationClass);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
