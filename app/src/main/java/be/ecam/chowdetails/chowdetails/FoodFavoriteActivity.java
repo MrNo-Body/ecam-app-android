@@ -46,9 +46,11 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         itemAdapter = new ItemAdapter(this);
         resultView.setAdapter(itemAdapter);
 
-        FoodDBHelper food_db = new FoodDBHelper(this);
+        //To fix the bug it's better to put these lign in the foodmain activity class
+        //When whe push the button to go to the favorite page
+        /*FoodDBHelper food_db = new FoodDBHelper(this);
         FoodList.setFoods(food_db.getFoods());
-
+        */
         itemAdapter.setData(FoodList.getFoods());
     }
         
