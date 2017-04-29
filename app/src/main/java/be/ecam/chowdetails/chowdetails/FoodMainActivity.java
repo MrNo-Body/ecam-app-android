@@ -60,6 +60,8 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
         }
         if (view.getId() == R.id.butfavoris)
         {
+            FoodDBHelper food_db = new FoodDBHelper(this);
+            FoodList.setFoods(food_db.getFoods());
             destinationClass = FoodFavoriteActivity.class;
             Intent intent = new Intent(context, destinationClass);
 
