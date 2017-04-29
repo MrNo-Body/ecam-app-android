@@ -1,6 +1,9 @@
 package be.ecam.chowdetails.chowdetails;
 
 import android.app.ListActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -47,6 +50,24 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         FoodList.setFoods(food_db.getFoods());
 
         itemAdapter.setData(FoodList.getFoods());
+    }
+        
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+  
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Option:
+                Class destinationClass = FoodPreferenceActivity.class;
+                Intent intent = new Intent(this, destinationClass);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
