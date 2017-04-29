@@ -4,6 +4,7 @@
     <string name="PrefText">Preferences</string>
     <string name="Menu">Menu</string>
     <string name="Option">Option</string>
+    <string name="Favorite">Favorite</string>
     <string name="TailleCara">Taille Caractère:</string>
     <string name="Color">Couleur:</string>
     <string name="Alergie">Allergies/Intolerance:</string>

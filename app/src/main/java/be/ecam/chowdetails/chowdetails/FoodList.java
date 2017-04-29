@@ -37,6 +37,10 @@ public class FoodList {
         return foods;
     }
 
+    public static void setFoods(ArrayList<Food> foods) {
+        FoodList.foods = foods;
+    }
+
     public static String toText() {
         String str = "";
         if (foods != null) {
