@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener{
 
@@ -26,7 +28,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
 
         Button butfavoris= (Button) findViewById(R.id.butfavoris);
         butfavoris.setOnClickListener(this);
-        Button butfind= (Button) findViewById(R.id.butfind);
+        ImageButton butfind= (ImageButton) findViewById(R.id.butfind);
         butfind.setOnClickListener(this);
     }
 
