@@ -7,5 +7,61 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!--Menu Color-->
+    <style name="menuBlack" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/black</item>
+    </style>
+    <style name="menuBlue" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/blue</item>
+    </style>
+    <style name="menuGreen" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/green</item>
+    </style>
+    <style name="menuRed" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/red</item>
+    </style>
+    <!--Spinner Color-->
+<!--todo spinner color-->
+    <style name="Blue" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@color/blue</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionOverflowMenuStyle">@style/menuBlue</item>
+    </style>
+
+    <style name="Green" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@color/green</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionOverflowMenuStyle">@style/menuGreen</item>
+
+
+    </style>
+
+    <style name="Red" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@color/red</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionOverflowMenuStyle">@style/menuRed</item>
+    </style>
+
+    <style name="BlackTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionOverflowMenuStyle">@style/menuBlack</item>
+    </style>
+
+    <style name="LightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 
 </resources>
