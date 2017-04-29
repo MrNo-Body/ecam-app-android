@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/activity_food_details"
-android:orientation="vertical"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_food_details"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/name"
@@ -17,24 +18,28 @@ android:layout_height="match_parent">
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:padding="16dp"/>
+
     <TextView
         android:id="@+id/categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:padding="16dp"/>
+
     <TextView
         android:id="@+id/ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:padding="16dp"/>
-    <ToggleButton
-        android:id="@+id/favorite_button"
+
+    <CheckBox
+        android:id="@+id/favorite"
+        android:button="@android:drawable/btn_star"
+        android:padding="@dimen/activity_horizontal_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textOn="dans favoris"
-        android:textOff="pas favoris"
-        android:checked="false" />
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

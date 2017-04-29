@@ -1,38 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenu sur ChowDetails! "
-        android:textStyle="bold"
-        android:textColor="#0011ff"
-        android:gravity="center"
-        />
-    <EditText
-        android:id="@+id/search"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Quels aliment cherches-tu?"
-        />
-    <Button
-        android:id="@+id/butfind"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find!"
-        />
+        android:layout_marginTop="53dp"
+        android:gravity="center"
+        android:text="Welcome to ChowDetails! "
+        android:textColor="#0011ff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="What are you looking for?"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp" />
     <Button
         android:id="@+id/butfavoris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Accéder au favoris"
-        />
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/result"
+        android:layout_alignLeft="@+id/result"
+        android:layout_alignStart="@+id/result" />
+
+    <ImageButton
+        android:id="@+id/butfind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="24dp"
+        app:srcCompat="@android:drawable/ic_search_category_default"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+    <!-- peut etre sympa a utiliser pour la recherche
+    <SearchView
+        android:id="@+id/butsearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_alignBottom="@+id/search"
+        android:layout_toRightOf="@+id/search"
+        android:layout_toEndOf="@+id/search" />-->
+
     <TextView
         android:id="@+id/result"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="D'autres options arrivent!!!"
-        />
-</LinearLayout>
+        android:layout_marginBottom="53dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
