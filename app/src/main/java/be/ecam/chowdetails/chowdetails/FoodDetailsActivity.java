@@ -98,6 +98,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
                 return true;
             case android.R.id.home:
                 onBackPressed();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

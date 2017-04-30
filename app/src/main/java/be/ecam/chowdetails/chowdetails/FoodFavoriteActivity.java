@@ -73,6 +73,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
                 return true;
             case android.R.id.home:
                 onBackPressed();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

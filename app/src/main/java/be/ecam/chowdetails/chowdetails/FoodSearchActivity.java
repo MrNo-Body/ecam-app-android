@@ -98,6 +98,7 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
                 return true;
             case android.R.id.home:
                 onBackPressed();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
