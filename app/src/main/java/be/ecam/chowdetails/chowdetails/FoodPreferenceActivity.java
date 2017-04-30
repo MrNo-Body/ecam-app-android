@@ -1,9 +1,12 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +20,7 @@ import android.widget.Button;
 import android.app.Activity;
 import android.view.View.OnClickListener;
 
+
 /*
 * Created by Neil
 * */
@@ -25,15 +29,17 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        themeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.preference);
-
         //Todo set le colorbackground de chaque view
         /*
         if(CheckBD) set  la couleur de BD
         this.getWindow().getDecorView().setBackgroundColor(Valeur BD);
         else
         rien
+
 */
+
         // Intent intent = getIntent();
         //Listener on Button
         Button button02 = (Button) findViewById(R.id.button02);
@@ -51,6 +57,7 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         ArrayAdapter<CharSequence> AllergieAdapter = ArrayAdapter.createFromResource(this,
                 R.array.allergieSpinArray, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
+        //todo verifié si je peux changer la couleur là dedans
         ColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         PoliceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AllergieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -96,16 +103,18 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
                 break;
             case "Blanc":
                 //TODO setBackgroundColor dans chaque view dans son OnCreate
-                this.getWindow().getDecorView().setBackgroundColor(0xFFFFFFFF);
+                //todo check si mode nuit ou non
+
+                //themeUtils.changeToTheme(this, themeUtils.WHITE);
                 break;
             case "Bleu":
-                this.getWindow().getDecorView().setBackgroundColor(0xFF9696FF);
+                themeUtils.changeToTheme(this, themeUtils.BLUE);
                 break;
             case "Rouge":
-                this.getWindow().getDecorView().setBackgroundColor(0xFFFF4E4A);
+                themeUtils.changeToTheme(this, themeUtils.RED);
                 break;
             case "Vert":
-                this.getWindow().getDecorView().setBackgroundColor(0xFF6EE89B);
+                themeUtils.changeToTheme(this, themeUtils.GREEN);
                 break;
             case "Arachide":
                 //todo set allergie Archadie
@@ -135,12 +144,13 @@ public void onCheckboxClicked(View view) {
             if (checked)
             {
                 //Todo Enregistrer dans BD
-                Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show();
+                themeUtils.changeToTheme(this, themeUtils.BLACK);
             }
             else
             {
+                themeUtils.changeToTheme(this, themeUtils.WHITE);
                 //todo enregistrer dans BD
-                Toast.makeText(this, "Not Checked", Toast.LENGTH_SHORT).show();
+
             }
             break;
 
@@ -148,12 +158,10 @@ public void onCheckboxClicked(View view) {
             if (checked)
             {
                 //todo enregistrer dans BD
-                Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show();
             }
             else
             {
                 //todo enregistrer dans BD
-                Toast.makeText(this, "Not Checked", Toast.LENGTH_SHORT).show();
             }
 
             break;
@@ -165,9 +173,9 @@ public void onCheckboxClicked(View view) {
 
     public void onClick(View view) {
 
-         if (view.getId() == R.id.button02) {
-          Toast.makeText(this, "Bouton 02", Toast.LENGTH_SHORT).show();
-          }
+        if (view.getId() == R.id.button02) {
+            //todo querry to BD
+            Toast.makeText(this, "black", Toast.LENGTH_SHORT).show();
+        }
     }
-
 }
