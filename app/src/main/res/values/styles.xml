@@ -65,7 +65,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionOverflowMenuStyle">@style/menuBlack</item>
         <item name="buttonTint">@color/white</item>
-
     </style>
 
     <style name="LightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -73,7 +72,11 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
+      </style>
 
+    <style name="ChowTheme_2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
     </style>
 
 </resources>
