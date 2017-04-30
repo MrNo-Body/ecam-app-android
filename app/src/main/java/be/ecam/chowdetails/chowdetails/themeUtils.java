@@ -9,6 +9,12 @@ public class themeUtils
 
     private static int cTheme;
 
+    public final static int Normal = 7;
+
+    public final static int Petit = 6;
+
+    public final static int Grand = 5;
+
     public final static int GREEN = 4;
 
     public final static int RED = 3;
@@ -74,6 +80,23 @@ public class themeUtils
 
                 break;
 
+            case Grand:
+
+                activity.setTheme(R.style.textGrand);
+
+                break;
+
+            case Petit:
+
+                activity.setTheme(R.style.textPetit);
+
+                break;
+
+            case Normal:
+
+                activity.setTheme(R.style.textNormal);
+
+                break;
         }
 
     }

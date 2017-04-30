@@ -1,6 +1,7 @@
 package be.ecam.chowdetails.chowdetails;
 
 import android.app.ListActivity;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,11 +32,16 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
 
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
+    Context context = this;
+    Class destinationClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_favorite);
+
+        //to display back arrow
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         resultView = (RecyclerView) findViewById(R.id.resultView);
 
@@ -45,6 +51,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
 
         itemAdapter = new ItemAdapter(this);
         resultView.setAdapter(itemAdapter);
+
 
         //To fix the bug it's better to put these lign in the foodmain activity class
         //When whe push the button to go to the favorite page
@@ -57,6 +64,26 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.search_menu,menu);
+        MenuItem item=menu.findItem(R.id.action_search);
+        SearchView searchView=(SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query){
+                destinationClass = FoodSearchActivity.class;
+                Intent intent = new Intent(context, destinationClass);
+
+                // Pass info to the FoodSearchActivity
+                intent.putExtra("SEARCH_TERM", query.toString());
+
+                startActivity(intent);
+                return false;
+            }
+            public boolean onQueryTextChange(String newText){
+
+                return false;
+            }
+        });
         return true;
     }
   
@@ -66,6 +93,9 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
                 Class destinationClass = FoodPreferenceActivity.class;
                 Intent intent = new Intent(this, destinationClass);
                 startActivity(intent);
+                return true;
+            case android.R.id.home:
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
