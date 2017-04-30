@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.view.View;
@@ -24,8 +25,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
 
     private Food food;
     private FoodDBHelper food_db;
-    //To use toggle button
-    private ToggleButton favorite_button;
+    private CheckBox favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +58,11 @@ public class FoodDetailsActivity extends AppCompatActivity {
         categories.setText("Categories: " + categoriesString);
         ingredients.setText("Ingredients: " + food.getIngredients());
 
-        // To Use Toggle button for favorite
-        favorite_button = (ToggleButton) findViewById(R.id.favorite_button);
+        // to save favorite
+        favorite = (CheckBox) findViewById(R.id.favorite);
         food_db = new FoodDBHelper(this);
-
-        favorite_button.setChecked(food_db.isInDB(food.getId()));
-
-        favorite_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        favorite.setChecked(food_db.isInDB(food.getId()));
+        favorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // Record the favorite
