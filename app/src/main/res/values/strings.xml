@@ -21,8 +21,8 @@
     </string-array>
 
     <string-array name="TpoliceSpinArray">
-        <item>Petit</item>
         <item>Normal</item>
+        <item>Petit</item>
         <item>Grand</item>
     </string-array>
 

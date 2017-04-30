@@ -100,12 +100,15 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
 
             case "Petit":
                 //TODO set le text en petit
+                themeUtils.changeToTheme(this, themeUtils.Petit);
                 break;
             case "Normal":
                 //TODO set le text en normal
+                //themeUtils.changeToTheme(this, themeUtils.Normal);
                 break;
             case "Grand":
                 //TODO set le text en grand
+                themeUtils.changeToTheme(this, themeUtils.Grand);
                 break;
             case "Blanc":
                 //TODO setBackgroundColor dans chaque view dans son OnCreate
@@ -163,6 +166,7 @@ public void onCheckboxClicked(View view) {
         case R.id.checkBoxPhoto:
             if (checked)
             {
+
                 //todo enregistrer dans BD
             }
             else
