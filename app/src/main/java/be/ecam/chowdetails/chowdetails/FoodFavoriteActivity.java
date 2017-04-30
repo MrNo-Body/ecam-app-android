@@ -65,6 +65,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         inflater.inflate(R.menu.search_menu,menu);
+        //inflater.inflate(R.menu.refresh_menu,menu);
         MenuItem item=menu.findItem(R.id.action_search);
         SearchView searchView=(SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
@@ -97,6 +98,14 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
             case android.R.id.home:
                 onBackPressed();
                 return true;
+            case R.id.Refresh:
+                //A optimiser
+                FoodDBHelper food_db = new FoodDBHelper(this);
+                FoodList.setFoods(food_db.getFoods());
+                destinationClass = FoodFavoriteActivity.class;
+                Intent intent1 = new Intent(context, destinationClass);
+                startActivity(intent1);
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -109,5 +118,6 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         Intent intent = new Intent(context, destinationClass);
         intent.putExtra(Intent.EXTRA_INDEX, index);
         startActivity(intent);
+
     }
 }
