@@ -2,9 +2,12 @@ package be.ecam.chowdetails.chowdetails;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.TransitionRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;

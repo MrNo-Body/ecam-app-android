@@ -63,5 +63,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ChowTheme_2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
+
+    </style>
+
 
 </resources>
