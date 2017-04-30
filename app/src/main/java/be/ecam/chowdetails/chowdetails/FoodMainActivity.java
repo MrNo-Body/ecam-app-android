@@ -1,7 +1,9 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -31,7 +33,6 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
         ImageButton butfind= (ImageButton) findViewById(R.id.butfind);
         butfind.setOnClickListener(this);
     }
-
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

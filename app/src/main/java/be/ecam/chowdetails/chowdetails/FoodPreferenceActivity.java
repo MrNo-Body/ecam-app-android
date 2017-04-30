@@ -31,6 +31,9 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         super.onCreate(savedInstanceState);
         themeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.preference);
+
+        //to display back arrow
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Todo set le colorbackground de chaque view
         /*
         if(CheckBD) set  la couleur de BD
@@ -83,6 +86,8 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         switch (item.getItemId()) {
             case R.id.Option:
                 return true;
+            case android.R.id.home:
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
         }

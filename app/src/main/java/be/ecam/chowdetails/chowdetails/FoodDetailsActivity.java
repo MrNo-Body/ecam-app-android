@@ -1,5 +1,6 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,9 @@ public class FoodDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_details);
+
+        //to display back arrow
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView name = (TextView) findViewById(R.id.name);
         TextView brand = (TextView) findViewById(R.id.brand);
@@ -86,11 +90,14 @@ public class FoodDetailsActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            //Option must be before home to avoid bug
             case R.id.Option:
                 Class destinationClass = FoodPreferenceActivity.class;
                 Intent intent = new Intent(this, destinationClass);
                 startActivity(intent);
                 return true;
+            case android.R.id.home:
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
         }

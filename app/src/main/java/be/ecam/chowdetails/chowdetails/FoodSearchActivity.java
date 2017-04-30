@@ -45,6 +45,9 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_search);
 
+        //to display back arrow
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         resultView = (RecyclerView) findViewById(R.id.resultView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -93,6 +96,8 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
                 Intent intent = new Intent(this, destinationClass);
                 startActivity(intent);
                 return true;
+            case android.R.id.home:
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
         }
