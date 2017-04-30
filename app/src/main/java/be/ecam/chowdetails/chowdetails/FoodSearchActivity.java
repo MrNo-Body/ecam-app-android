@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,23 +23,42 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
 
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
-
+    Context context = this;
+    Class destinationClass;
     @Override
     //Using search widget
     public boolean onCreateOptionsMenu(Menu menu){
         //inflate the options menu from XML
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu, menu);
-        inflater.inflate(R.menu.menu, menu);
-
         //get the SearchView and set the searchable configuration
         //SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         //SearchView searchView = (SearchView) menu.findItem(R.id.activity_food_search).getActionView();
-
         //assumes current activity is the searchable activity
         //searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         //searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default;
 
+        // Search in the toolbar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.search_menu,menu);
+        MenuItem item=menu.findItem(R.id.action_search);
+        SearchView searchView=(SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
+            @Override
+            public boolean onQueryTextSubmit(String query){
+                destinationClass = FoodSearchActivity.class;
+                Intent intent = new Intent(context, destinationClass);
+                // Pass info to the FoodSearchActivity
+                intent.putExtra("SEARCH_TERM", query.toString());
+
+                startActivity(intent);
+                return false;
+            }
+            public boolean onQueryTextChange(String newText){
+
+                return false;
+            }
+        });
         return true;
     }
 
