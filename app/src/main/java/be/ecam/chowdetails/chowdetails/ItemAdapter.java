@@ -50,11 +50,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemAdapterVie
         mData = data;
         notifyDataSetChanged();
     }
-
     public ArrayList<Food> getData() {
         return mData;
     }
-
 
     public class ItemAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
