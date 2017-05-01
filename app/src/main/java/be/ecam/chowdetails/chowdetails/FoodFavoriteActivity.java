@@ -18,7 +18,7 @@ import android.support.v7.widget.RecyclerView;
  */
 
 public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
-    public boolean blue, red, white, green, photomode, nightmode = false;
+    public boolean blue, red, green, photomode, nightmode = false;
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
     Context context = this;
@@ -84,6 +84,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         MenuItem item=menu.findItem(R.id.action_search);
         SearchView searchView=(SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
             @Override
             public boolean onQueryTextSubmit(String query){
                 destinationClass = FoodSearchActivity.class;

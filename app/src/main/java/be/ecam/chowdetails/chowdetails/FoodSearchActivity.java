@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,13 +29,6 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
     @Override
     //Using search widget
     public boolean onCreateOptionsMenu(Menu menu){
-        //inflate the options menu from XML
-        //get the SearchView and set the searchable configuration
-        //SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        //SearchView searchView = (SearchView) menu.findItem(R.id.activity_food_search).getActionView();
-        //assumes current activity is the searchable activity
-        //searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        //searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default;
 
         // Search in the toolbar
         MenuInflater inflater = getMenuInflater();
@@ -125,14 +117,6 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
         new QueryTask().execute(API_BASE_URL + "?search_terms=" + search_term  +
                 "&search_simple=1&action=process&json=1");
 
-        //Get the intent, verify the action and get the query
-        /*
-        Intent intent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())){
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            //doMySearch(query);
-        }
-        */
     }
 
     @Override
@@ -169,9 +153,9 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
             ArrayList<Food> queryResults = null;
             try {
                 json = NetworkUtils.getResponseFromHttpUrl(searchUrl);
-                //Log.w("chowdetails", json);
+
                 FoodList.parse(json);
-                //Log.w("chowdetails", FoodList.toText());
+
 
                 queryResults = FoodList.getFoods();
             } catch (Exception e) {
