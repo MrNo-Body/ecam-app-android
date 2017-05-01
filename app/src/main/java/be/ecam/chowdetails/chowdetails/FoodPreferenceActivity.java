@@ -1,7 +1,10 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,10 +25,24 @@ import android.view.View.OnClickListener;
 * */
 public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener, AdapterView.OnItemSelectedListener {
 
+    public boolean nightmode;
+    public boolean photo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preference);
+
+        CheckBox checkBoxPhoto=(CheckBox)findViewById(R.id.checkBoxPhoto);
+        CheckBox checkBoxNight=(CheckBox)findViewById(R.id.checkBoxNight);
+
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photo = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxPhoto", false);
+
+        checkBoxNight.setChecked(nightmode);
+        checkBoxPhoto.setChecked(photo);
 
         //Todo set le colorbackground de chaque view
         /*
@@ -132,6 +149,8 @@ public void onCheckboxClicked(View view) {
 
     switch(view.getId()) {
         case R.id.checkBoxNight:
+            PreferenceManager.getDefaultSharedPreferences(this).edit()
+                    .putBoolean("checkBoxNight", nightmode).commit();
             if (checked)
             {
                 //Todo Enregistrer dans BD
@@ -145,6 +164,8 @@ public void onCheckboxClicked(View view) {
             break;
 
         case R.id.checkBoxPhoto:
+            PreferenceManager.getDefaultSharedPreferences(this).edit()
+                    .putBoolean("checkBoxPhoto", photo).commit();
             if (checked)
             {
                 //todo enregistrer dans BD
@@ -169,5 +190,7 @@ public void onCheckboxClicked(View view) {
           Toast.makeText(this, "Bouton 02", Toast.LENGTH_SHORT).show();
           }
     }
+
+
 
 }

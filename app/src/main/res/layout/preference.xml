@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -11,8 +12,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:title="@string/PrefText"
     tools:context="be.ecam.chowdetails.chowdetails.FoodMainActivity">
-
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +34,6 @@
         android:id="@+id/textView2"
         />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,6 +43,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +75,6 @@
         android:onClick="onCheckboxClicked"
         />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,6 +84,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         />
+
     <CheckBox
         android:id="@+id/checkBoxNight"
         android:layout_width="wrap_content"
@@ -133,6 +132,4 @@
         android:layout_alignRight="@+id/button02"
         android:layout_alignEnd="@+id/button02" />
 
-
-
-</RelativeLayout>
+</RelativeLayout >
