@@ -1,12 +1,10 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,8 +15,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.app.Activity;
 import android.view.View.OnClickListener;
+
 
 /*
 * Created by Neil
@@ -30,16 +28,23 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.preference);
 
-        CheckBox checkBoxPhoto=(CheckBox)findViewById(R.id.checkBoxPhoto);
-        CheckBox checkBoxNight=(CheckBox)findViewById(R.id.checkBoxNight);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_food_preference);
+
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+        CheckBox checkBoxPhoto = (CheckBox) findViewById(R.id.checkBoxPhoto);
+        CheckBox checkBoxNight = (CheckBox) findViewById(R.id.checkBoxNight);
 
         nightmode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxNight", false);
+
         photo = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxPhoto", false);
+
+
+
 
         checkBoxNight.setChecked(nightmode);
         checkBoxPhoto.setChecked(photo);
@@ -149,30 +154,39 @@ public void onCheckboxClicked(View view) {
 
     switch(view.getId()) {
         case R.id.checkBoxNight:
-            PreferenceManager.getDefaultSharedPreferences(this).edit()
-                    .putBoolean("checkBoxNight", nightmode).commit();
             if (checked)
             {
+                nightmode = true;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxNight", nightmode).commit();
                 //Todo Enregistrer dans BD
-                Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Checked "+nightmode, Toast.LENGTH_SHORT).show();
             }
             else
             {
+                nightmode = false;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxNight", nightmode).commit();
                 //todo enregistrer dans BD
-                Toast.makeText(this, "Not Checked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Not Checked "+nightmode, Toast.LENGTH_SHORT).show();
             }
             break;
 
         case R.id.checkBoxPhoto:
-            PreferenceManager.getDefaultSharedPreferences(this).edit()
-                    .putBoolean("checkBoxPhoto", photo).commit();
+
             if (checked)
             {
+                photo = true;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxPhoto", photo).commit();
                 //todo enregistrer dans BD
                 Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show();
             }
             else
             {
+                photo= false;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxPhoto", photo).commit();
                 //todo enregistrer dans BD
                 Toast.makeText(this, "Not Checked", Toast.LENGTH_SHORT).show();
             }
