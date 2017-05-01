@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_weather_forecast_list"
+        android:id="@+id/search_responses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/activity_vertical_margin"
@@ -17,7 +18,9 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/resultView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="479dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/food_item" />
 
     </FrameLayout>
 </ScrollView>
