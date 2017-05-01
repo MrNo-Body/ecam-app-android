@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.transition.Scene;
 import android.transition.Transition;
-import android.transition.TransitionInflater;$
+import android.transition.TransitionInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
