@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.Menu;
@@ -156,7 +157,7 @@ public void onBackPressed() {
                 break;
             case "Normal":
                 //TODO set le text en normal
-                //themeUtils.changeToTheme(this, themeUtils.Normal);
+               //themeUtils.changeToTheme(this, themeUtils.Normal);
                 break;
             case "Grand":
                 //TODO set le text en grand
@@ -311,7 +312,6 @@ public void onCheckboxClicked(View view) {
                         .putBoolean("blueColor", blue).commit();
                 if(!(red||blue||green||white)) {
                     themeUtils.changeToTheme(this, themeUtils.WHITE);
-                    //todo enregistrer dans BD
                 }
             }
             break;
@@ -323,14 +323,12 @@ public void onCheckboxClicked(View view) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxPhoto", photomode).commit();
 
-                //todo enregistrer dans BD
             }
             else
             {
                 photomode= false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxPhoto", photomode).commit();
-                //todo enregistrer dans BD
             }
 
             break;
@@ -340,7 +338,10 @@ public void onCheckboxClicked(View view) {
 
         if (view.getId() == R.id.button02) {
             //todo querry to BD
-            Toast.makeText(this, "black", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Downloading...", Toast.LENGTH_SHORT).show();
+            Class destinationClass = FoodSearchActivity.class;
+            Intent intent = new Intent(this, destinationClass);
+            intent.putExtra("SEARCH_TERM","");
         }
     }
 }
