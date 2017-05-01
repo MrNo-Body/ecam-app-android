@@ -1,31 +1,38 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.app.ActionBar;
+//import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.TransitionRes;
+/*import android.support.annotation.TransitionRes;
 import android.os.Build;
-import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.MenuItemCompat;*/
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+/*import android.support.v7.widget.SearchView;
 import android.transition.Scene;
 import android.transition.Transition;
-import android.transition.TransitionInflater;
+import android.transition.TransitionInflater;$*/
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.ViewGroup;
+//import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+//import android.widget.TextView;
+import android.widget.Toast;
+
+//import com.google.zxing.integration.android.*;
+import com.google.zxing.integration.android.IntentIntegrator;
+
+//import com.google.zxing.integration.android.IntentIntegrator;
+//import com.google.zxing.integration.android.IntentResult;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener {
     Context context = this;
     Class destinationClass;
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -40,6 +47,8 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
         butfavoris.setOnClickListener(this);
         ImageButton butfind= (ImageButton) findViewById(R.id.butfind);
         butfind.setOnClickListener(this);
+        Button scanBtn = (Button)findViewById(R.id.scan_button);
+        scanBtn.setOnClickListener(this);
 
     }
 
@@ -76,8 +85,26 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
             Intent intent = new Intent(context, destinationClass);
             startActivity(intent);
         }
+        if(view.getId()==R.id.scan_button){
+            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+            scanIntegrator.initiateScan();
+        }
     }
+    //////////////////////////////////////
+    //Allow to read a barcode but the search can't find the food with that for the moment
+    //Because the API don't allow that
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        com.google.zxing.integration.android.IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanningResult != null) {
+            String scanContent = scanningResult.getContents();
 
-
-
+            EditText search = (EditText) findViewById(R.id.search);
+            search.setText(scanContent);
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "No scan data received!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
 }

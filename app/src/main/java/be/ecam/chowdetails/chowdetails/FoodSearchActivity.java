@@ -21,6 +21,7 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
 
     private static final String API_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
 
+
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
     Context context = this;
@@ -86,10 +87,9 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
             search_term = "";
         }
 
-        Toast.makeText(FoodSearchActivity.this, "Searching...", Toast.LENGTH_SHORT).show();
+       Toast.makeText(FoodSearchActivity.this, "Searching...", Toast.LENGTH_SHORT).show();
         new QueryTask().execute(API_BASE_URL + "?search_terms=" + search_term  +
                 "&search_simple=1&action=process&json=1");
-
 
         //Get the intent, verify the action and get the query
         /*
