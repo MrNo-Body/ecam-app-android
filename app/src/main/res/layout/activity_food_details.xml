@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/loupecad"
+            android:layout_width="87dp"
+            android:layout_height="76dp"
+            android:layout_above="@+id/butfavoris"
+            android:layout_alignTop="@+id/search"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@mipmap/loupe_caddie" />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
