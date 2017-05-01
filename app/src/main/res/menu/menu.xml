@@ -10,10 +10,6 @@
     <item android:id="@+id/Option"
         android:title="@string/Option"
         />
-    <item
-        android:id="@+id/Refresh"
-        android:title="refresh2"
-         />
        <!-- android:showAsAction="ifRoom"-->
 
 </menu>
