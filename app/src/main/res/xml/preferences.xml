@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="checkBoxNight"
+        android:title="Enable Nightmode"
+        android:defaultValue="False"
+        android:summaryOff="False"
+        android:summaryOn="True" />
+
+    <CheckBoxPreference
+        android:key="checkBoxPhoto"
+        android:title="Enable Photo"
+        android:defaultValue="False"/>
+
+    <CheckBoxPreference
+        android:key="redColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="greenColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="blueColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="whiteColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+</PreferenceScreen>

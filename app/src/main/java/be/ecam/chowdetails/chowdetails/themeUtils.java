@@ -101,4 +101,65 @@ public class themeUtils
 
     }
 
+    public static void onActivityCreateSetTheme(Activity activity, int Theme)
+
+    {
+
+        switch (Theme)
+
+        {
+
+            default:
+
+            case BLACK:
+
+                activity.setTheme(R.style.BlackTheme);
+
+                break;
+
+            case WHITE:
+
+                activity.setTheme(R.style.LightTheme);
+
+                break;
+
+            case BLUE:
+
+                activity.setTheme(R.style.Blue);
+
+                break;
+
+            case RED:
+
+                activity.setTheme(R.style.Red);
+
+                break;
+
+            case GREEN:
+
+                activity.setTheme(R.style.Green);
+
+                break;
+
+            case Grand:
+
+                activity.setTheme(R.style.textGrand);
+
+                break;
+
+            case Petit:
+
+                activity.setTheme(R.style.textPetit);
+
+                break;
+
+            case Normal:
+
+                activity.setTheme(R.style.textNormal);
+
+                break;
+        }
+
+    }
+
 }
