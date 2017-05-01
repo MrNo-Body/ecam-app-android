@@ -44,27 +44,26 @@
         android:layout_below="@+id/tpoliceSpin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        />
+        android:layout_marginTop="11dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Alergie"
         android:id="@+id/textView5"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Photo"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="18dp"
         android:id="@+id/textView6"
-        />
+        android:layout_below="@+id/allergieSpin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <CheckBox
         android:id="@+id/checkBoxPhoto"
         android:layout_width="wrap_content"
@@ -85,7 +84,7 @@
         android:layout_below="@+id/checkBoxPhoto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        />
+        android:layout_marginTop="20dp" />
     <CheckBox
         android:id="@+id/checkBoxNight"
         android:layout_width="wrap_content"
