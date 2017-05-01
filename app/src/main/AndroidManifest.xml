@@ -21,7 +21,7 @@
         <activity android:name=".FoodPreferenceActivity"
            />
 
-        <!-- Activity Search -->
+        <!-- Activity Search-->
         <activity android:name=".FoodSearchActivity">
             <meta-data android:name="android.intent.action.searchable"
                        android:resource="@xml/searchable"/>

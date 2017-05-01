@@ -1,28 +1,16 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.app.ListActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Contacts;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by yas on 25/04/2017.
@@ -52,12 +40,6 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         itemAdapter = new ItemAdapter(this);
         resultView.setAdapter(itemAdapter);
 
-
-        //To fix the bug it's better to put these lign in the foodmain activity class
-        //When whe push the button to go to the favorite page
-        /*FoodDBHelper food_db = new FoodDBHelper(this);
-        FoodList.setFoods(food_db.getFoods());
-        */
         itemAdapter.setData(FoodList.getFoods());
     }
         
@@ -66,7 +48,6 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         inflater.inflate(R.menu.menu, menu);
         inflater.inflate(R.menu.search_menu,menu);
         inflater.inflate(R.menu.refresh_menu,menu);
-        //inflater.inflate(R.menu.refresh_menu,menu);
         MenuItem item=menu.findItem(R.id.action_search);
         SearchView searchView=(SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
