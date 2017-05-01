@@ -2,6 +2,7 @@ package be.ecam.chowdetails.chowdetails;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,7 +31,7 @@ import java.util.List;
  */
 
 public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
-
+    public boolean blue, red, white, green, photomode, nightmode = false;
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
     Context context = this;
@@ -39,6 +40,38 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //------------------COLOR THE WORLD!!!-------------------
+        themeUtils.onActivityCreateSetTheme(this);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxPhoto", false);
+        red = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("redColor", false);
+        blue = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("blueColor", false);
+        green = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("greenColor", false);
+        if(nightmode)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+        else if (blue)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+        }
+        else if (red)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+        }
+        else if (green)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+        }
+        else
+        {}
+        //----------------------------------------------------------
         setContentView(R.layout.activity_food_favorite);
 
         //to display back arrow

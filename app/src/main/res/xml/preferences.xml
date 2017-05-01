@@ -11,4 +11,29 @@
         android:key="checkBoxPhoto"
         android:title="Enable Photo"
         android:defaultValue="False"/>
+
+    <CheckBoxPreference
+        android:key="redColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="greenColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="blueColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="whiteColor"
+        android:title="SpinnerColor"
+        android:defaultValue="false"
+        />
+
 </PreferenceScreen>

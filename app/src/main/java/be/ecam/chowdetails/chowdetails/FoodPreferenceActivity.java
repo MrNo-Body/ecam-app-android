@@ -21,33 +21,69 @@ import android.view.View.OnClickListener;
 * Created by Neil
 * */
 public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener, AdapterView.OnItemSelectedListener {
-    public boolean nightmode;
-    public boolean photomode;
+    public boolean blue, red, white, green, photomode, nightmode = false;
+    public int spinnerColorPos=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         themeUtils.onActivityCreateSetTheme(this);
+
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
         nightmode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxNight", false);
+
         photomode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxPhoto", false);
+
+        red = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("redColor", false);
+
+        blue = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("blueColor", false);
+
+        green = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("greenColor", false);
+
         if(nightmode)
         {
+            spinnerColorPos = 0;
             themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+        else if (blue)
+        {
+            spinnerColorPos = 1;
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+        }
+        else if (red)
+        {
+            spinnerColorPos = 2;
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+        }
+        else if (green)
+        {
+            spinnerColorPos = 3;
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+        }
+
+        else
+        {
+
         }
 
         setContentView(R.layout.activity_food_preference);
+
 
 
         //---------pref settings
         CheckBox checkBoxPhoto = (CheckBox) findViewById(R.id.checkBoxPhoto);
         CheckBox checkBoxNight = (CheckBox) findViewById(R.id.checkBoxNight);
 
-        checkBoxNight.setChecked(nightmode);
         checkBoxPhoto.setChecked(photomode);
+        checkBoxNight.setChecked(nightmode);
+
         //--------------------------
 
         //to display back arrow
@@ -79,6 +115,8 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         ColorSpin.setAdapter(ColorAdapter);
         TpoliceSpin.setAdapter(PoliceAdapter);
         AllergieSpin.setAdapter(AllergieAdapter);
+
+        ColorSpin.setSelection(spinnerColorPos);
 //Apply Listener on the spinner
         ColorSpin.setOnItemSelectedListener(this);
         TpoliceSpin.setOnItemSelectedListener(this);
@@ -110,7 +148,7 @@ public void onBackPressed() {
 //----------------Spinner-----------------
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-        switch (parent.getItemAtPosition(pos).toString()){
+        switch (parent.getItemAtPosition(pos).toString()) {
 
             case "Petit":
                 //TODO set le text en petit
@@ -125,19 +163,88 @@ public void onBackPressed() {
                 themeUtils.changeToTheme(this, themeUtils.Grand);
                 break;
             case "Blanc":
-                //TODO setBackgroundColor dans chaque view dans son OnCreate
-                //todo check si mode nuit ou non
-
-                //themeUtils.changeToTheme(this, themeUtils.WHITE);
+                if ((red || blue || green || nightmode) && (spinnerColorPos != 0)) {
+                    blue = false;
+                    white = false;
+                    green = false;
+                    red = false;
+                    nightmode = false;
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("checkBoxNight", nightmode).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("redColor", red).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("whiteColor", white).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("blueColor", blue).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("greenColor", green).commit();
+                    themeUtils.changeToTheme(this, themeUtils.WHITE);
+                }
                 break;
             case "Bleu":
-                themeUtils.changeToTheme(this, themeUtils.BLUE);
+                if (spinnerColorPos != 1) {
+                    blue = true;
+                    white = false;
+                    green = false;
+                    red = false;
+                    nightmode = false;
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("checkBoxNight", nightmode).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("redColor", red).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("whiteColor", white).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("blueColor", blue).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("greenColor", green).commit();
+
+                    themeUtils.changeToTheme(this, themeUtils.BLUE);
+                }
                 break;
             case "Rouge":
-                themeUtils.changeToTheme(this, themeUtils.RED);
+                if (spinnerColorPos != 2) {
+                    red = true;
+                    white = false;
+                    blue = false;
+                    green = false;
+                    nightmode = false;
+
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("checkBoxNight", nightmode).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("redColor", red).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("whiteColor", white).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("blueColor", blue).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("greenColor", green).commit();
+                    themeUtils.changeToTheme(this, themeUtils.RED);
+                }
+
                 break;
             case "Vert":
-                themeUtils.changeToTheme(this, themeUtils.GREEN);
+                if(spinnerColorPos!=3) {
+                    green = true;
+                    white = false;
+                    blue = false;
+                    red = false;
+                    nightmode = false;
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("checkBoxNight", nightmode).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("redColor", red).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("whiteColor", white).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("blueColor", blue).commit();
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putBoolean("greenColor", green).commit();
+                    themeUtils.changeToTheme(this, themeUtils.GREEN);
+                }
+
                 break;
             case "Arachide":
                 //todo set allergie Archadie
@@ -167,8 +274,21 @@ public void onCheckboxClicked(View view) {
             if (checked)
             {
                 nightmode = true;
+                red= false;
+                green = false;
+                white= false;
+                blue = false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxNight", nightmode).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("redColor", red).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("greenColor", green).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("whiteColor", white).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("blueColor", blue).commit();
+
                 //Todo Enregistrer dans BD
                 themeUtils.changeToTheme(this, themeUtils.BLACK);
             }
@@ -177,8 +297,22 @@ public void onCheckboxClicked(View view) {
                 nightmode = false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxNight", nightmode).commit();
-                themeUtils.changeToTheme(this, themeUtils.WHITE);
-                //todo enregistrer dans BD
+                red= false;
+                green = false;
+                white= false;
+                blue = false;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("redColor", red).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("greenColor", green).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("whiteColor", white).commit();
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("blueColor", blue).commit();
+                if(!(red||blue||green||white)) {
+                    themeUtils.changeToTheme(this, themeUtils.WHITE);
+                    //todo enregistrer dans BD
+                }
             }
             break;
 
@@ -202,10 +336,6 @@ public void onCheckboxClicked(View view) {
             break;
     }
 }
-
-
-
-
     public void onClick(View view) {
 
         if (view.getId() == R.id.button02) {

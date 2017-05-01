@@ -3,6 +3,7 @@ package be.ecam.chowdetails.chowdetails;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -25,7 +26,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity {
-
+    public boolean blue, red, white, green, photomode, nightmode = false;
     private Food food;
     private FoodDBHelper food_db;
     private CheckBox favorite;
@@ -34,6 +35,38 @@ public class FoodDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //------------------COLOR THE WORLD!!!-------------------
+        themeUtils.onActivityCreateSetTheme(this);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)//Utilise cette variable dans un if pour activer ou non les photo
+                .getBoolean("checkBoxPhoto", false);
+        red = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("redColor", false);
+        blue = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("blueColor", false);
+        green = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("greenColor", false);
+        if(nightmode)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+        else if (blue)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+        }
+        else if (red)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+        }
+        else if (green)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+        }
+        else
+        {}
+        //----------------------------------------------------------
         setContentView(R.layout.activity_food_details);
 
         //to display back arrow

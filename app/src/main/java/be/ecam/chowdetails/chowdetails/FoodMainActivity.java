@@ -22,8 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener {
-    public boolean nightmode;
-    public boolean photomode;
+    public boolean blue, red, white, green, photomode, nightmode = false;
 
     Context context = this;
     Class destinationClass;
@@ -42,10 +41,30 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
                 .getBoolean("checkBoxNight", false);
         photomode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxPhoto", false);
+        red = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("redColor", false);
+        blue = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("blueColor", false);
+        green = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("greenColor", false);
         if(nightmode)
         {
             themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
         }
+        else if (blue)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+        }
+        else if (red)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+        }
+        else if (green)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+        }
+        else
+        {}
 
 
         setContentView(R.layout.activity_food_main);
