@@ -3,6 +3,7 @@ package be.ecam.chowdetails.chowdetails;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.annotation.TransitionRes;
 import android.os.Build;
 import android.support.v4.view.MenuItemCompat;
@@ -21,6 +22,9 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 public class FoodMainActivity extends AppCompatActivity implements OnClickListener {
+    public boolean nightmode;
+    public boolean photomode;
+
     Context context = this;
     Class destinationClass;
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -31,6 +35,19 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        themeUtils.onActivityCreateSetTheme(this);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxPhoto", false);
+        if(nightmode)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+
+
         setContentView(R.layout.activity_food_main);
 
         Button butfavoris= (Button) findViewById(R.id.butfavoris);

@@ -1,12 +1,9 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.app.Activity;
 import android.view.View.OnClickListener;
 
 
@@ -25,23 +21,38 @@ import android.view.View.OnClickListener;
 * Created by Neil
 * */
 public class FoodPreferenceActivity extends AppCompatActivity implements OnClickListener, AdapterView.OnItemSelectedListener {
+    public boolean nightmode;
+    public boolean photomode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         themeUtils.onActivityCreateSetTheme(this);
-        setContentView(R.layout.preference);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxPhoto", false);
+        if(nightmode)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+
+        setContentView(R.layout.activity_food_preference);
+
+
+        //---------pref settings
+        CheckBox checkBoxPhoto = (CheckBox) findViewById(R.id.checkBoxPhoto);
+        CheckBox checkBoxNight = (CheckBox) findViewById(R.id.checkBoxNight);
+
+        checkBoxNight.setChecked(nightmode);
+        checkBoxPhoto.setChecked(photomode);
+        //--------------------------
 
         //to display back arrow
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Todo set le colorbackground de chaque view
-        /*
-        if(CheckBD) set  la couleur de BD
-        this.getWindow().getDecorView().setBackgroundColor(Valeur BD);
-        else
-        rien
 
-*/
 
         // Intent intent = getIntent();
         //Listener on Button
@@ -76,6 +87,9 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
 
 
 //----------------Menu-----------------
+public void onBackPressed() {
+    startActivity(new Intent(this, FoodMainActivity.class));
+}
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -152,25 +166,36 @@ public void onCheckboxClicked(View view) {
         case R.id.checkBoxNight:
             if (checked)
             {
+                nightmode = true;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxNight", nightmode).commit();
                 //Todo Enregistrer dans BD
                 themeUtils.changeToTheme(this, themeUtils.BLACK);
             }
             else
             {
+                nightmode = false;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxNight", nightmode).commit();
                 themeUtils.changeToTheme(this, themeUtils.WHITE);
                 //todo enregistrer dans BD
-
             }
             break;
 
         case R.id.checkBoxPhoto:
             if (checked)
             {
+                photomode = true;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxPhoto", photomode).commit();
 
                 //todo enregistrer dans BD
             }
             else
             {
+                photomode= false;
+                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                        .putBoolean("checkBoxPhoto", photomode).commit();
                 //todo enregistrer dans BD
             }
 
