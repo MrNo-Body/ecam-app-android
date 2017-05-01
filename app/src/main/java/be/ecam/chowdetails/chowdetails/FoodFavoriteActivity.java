@@ -1,5 +1,6 @@
 package be.ecam.chowdetails.chowdetails;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -106,6 +107,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
                 Intent intent1 = new Intent(context, destinationClass);
                 startActivity(intent1);
 
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -117,7 +119,21 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         Class destinationClass = FoodDetailsActivity.class;
         Intent intent = new Intent(context, destinationClass);
         intent.putExtra(Intent.EXTRA_INDEX, index);
-        startActivity(intent);
+        startActivityForResult(intent, 0);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode==0)
+        {
+            finish();
+            FoodDBHelper food_db = new FoodDBHelper(this);
+            FoodList.setFoods(food_db.getFoods());
+            destinationClass = FoodFavoriteActivity.class;
+            Intent intent1 = new Intent(context, destinationClass);
+            startActivity(intent1);
+        }
     }
 }

@@ -121,7 +121,12 @@ public class FoodDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case android.R.id.home:
-                onBackPressed();
+                //onBackPressed();
+                //Intent result = new Intent();
+
+                setResult(RESULT_OK, new Intent());
+
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
