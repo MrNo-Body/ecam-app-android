@@ -93,8 +93,10 @@ public class FoodDetailsActivity extends AppCompatActivity {
         String categoriesString = "";
 
         //Download the picture
-        new DownloadImageTask((ImageView) findViewById(R.id.loupecad))
-                .execute(food.getURL_picture());
+       if(photomode) {
+           new DownloadImageTask((ImageView) findViewById(R.id.loupecad))
+                   .execute(food.getURL_picture());
+       }
 
         name.setText("Name: " + food.getName());
         brand.setText("Brand: " + food.getBrand());

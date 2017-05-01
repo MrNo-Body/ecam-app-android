@@ -10,7 +10,7 @@
     <CheckBoxPreference
         android:key="checkBoxPhoto"
         android:title="Enable Photo"
-        android:defaultValue="False"/>
+        android:defaultValue="true"/>
 
     <CheckBoxPreference
         android:key="redColor"
