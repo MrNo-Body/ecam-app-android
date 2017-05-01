@@ -40,7 +40,7 @@
         android:id="@+id/butfavoris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accéder au favoris"
+        android:text="Favorite"
         android:layout_marginBottom="23dp"
         android:layout_above="@+id/result"
         android:layout_alignLeft="@+id/result"
@@ -63,11 +63,35 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="D'autres options arrivent!!!"
+        android:text="More Option to come!!!"
         android:layout_marginBottom="53dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
 
 
+    <Button android:id="@+id/scan_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan"
+        android:layout_alignTop="@+id/loupecad"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginTop="17dp" />
+    <TextView
+        android:id="@+id/scan_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_below="@id/scan_button"
+        android:layout_toRightOf="@+id/scan_content"
+        android:layout_toEndOf="@+id/scan_content" />
+    <TextView
+        android:id="@+id/scan_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/scan_format" />
+        />
 </RelativeLayout>

@@ -2,6 +2,7 @@ package be.ecam.chowdetails.chowdetails;
 
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -20,7 +21,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity {
-
+    public boolean blue, red, white, green, photomode, nightmode = false;
     private Food food;
     private FoodDBHelper food_db;
     private CheckBox favorite;
@@ -29,6 +30,38 @@ public class FoodDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //------------------COLOR THE WORLD!!!-------------------
+        themeUtils.onActivityCreateSetTheme(this);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)//Utilise cette variable dans un if pour activer ou non les photo
+                .getBoolean("checkBoxPhoto", false);
+        red = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("redColor", false);
+        blue = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("blueColor", false);
+        green = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("greenColor", false);
+        if(nightmode)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+        else if (blue)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+        }
+        else if (red)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+        }
+        else if (green)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+        }
+        else
+        {}
+        //----------------------------------------------------------
         setContentView(R.layout.activity_food_details);
         //to display back arrow
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -47,8 +80,10 @@ public class FoodDetailsActivity extends AppCompatActivity {
         String categoriesString = "";
 
         //Download the picture
-        new DownloadImageTask((ImageView) findViewById(R.id.loupecad))
-                .execute(food.getURL_picture());
+       if(photomode) {
+           new DownloadImageTask((ImageView) findViewById(R.id.loupecad))
+                   .execute(food.getURL_picture());
+       }
 
         name.setText("Name: " + food.getName());
         brand.setText("Brand: " + food.getBrand());
@@ -119,36 +154,15 @@ public class FoodDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case android.R.id.home:
-                onBackPressed();
+                //onBackPressed();
+                //Intent result = new Intent();
+
+                setResult(RESULT_OK, new Intent());
+
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-    //Download picture
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
-
 }

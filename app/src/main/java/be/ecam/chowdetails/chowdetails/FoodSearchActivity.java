@@ -3,6 +3,7 @@ package be.ecam.chowdetails.chowdetails;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,8 +19,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
-
+    public boolean blue, red, white, green, photomode, nightmode = false;
     private static final String API_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
+
 
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
@@ -63,7 +65,40 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
     }
 
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        //------------------COLOR THE WORLD!!!-------------------
+        themeUtils.onActivityCreateSetTheme(this);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        nightmode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxNight", false);
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("checkBoxPhoto", false);
+        red = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("redColor", false);
+        blue = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("blueColor", false);
+        green = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("greenColor", false);
+        if(nightmode)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+        }
+        else if (blue)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+        }
+        else if (red)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+        }
+        else if (green)
+        {
+            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+        }
+        else
+        {}
+        //----------------------------------------------------------
         setContentView(R.layout.activity_food_search);
 
         //to display back arrow
@@ -86,10 +121,9 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
             search_term = "";
         }
 
-        Toast.makeText(FoodSearchActivity.this, "Searching...", Toast.LENGTH_SHORT).show();
+       Toast.makeText(FoodSearchActivity.this, "Searching...", Toast.LENGTH_SHORT).show();
         new QueryTask().execute(API_BASE_URL + "?search_terms=" + search_term  +
                 "&search_simple=1&action=process&json=1");
-
 
         //Get the intent, verify the action and get the query
         /*

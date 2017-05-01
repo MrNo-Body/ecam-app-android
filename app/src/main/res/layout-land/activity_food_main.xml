@@ -28,7 +28,7 @@
         android:id="@+id/butfavoris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accéder au favoris"
+        android:text="Favorite"
         android:layout_marginTop="23dp"
         android:layout_below="@+id/butfind"
         android:layout_centerHorizontal="true" />
@@ -50,7 +50,7 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="D'autres options arrivent!!!"
+        android:text="More Option to come!!!"
         android:layout_below="@+id/butfavoris"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
