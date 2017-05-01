@@ -158,8 +158,6 @@ public class FoodSearchActivity extends AppCompatActivity implements ItemAdapter
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
     /*
      * Query Class
      */

@@ -99,6 +99,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         inflater.inflate(R.menu.search_menu,menu);
+        inflater.inflate(R.menu.refresh_menu,menu);
         //inflater.inflate(R.menu.refresh_menu,menu);
         MenuItem item=menu.findItem(R.id.action_search);
         SearchView searchView=(SearchView) item.getActionView();

@@ -10,11 +10,13 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.transition.Scene;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.MenuItem;
@@ -26,6 +28,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
 
     Context context = this;
     Class destinationClass;
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -110,6 +113,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
             startActivity(intent);
         }
     }
+
 
 
 }
