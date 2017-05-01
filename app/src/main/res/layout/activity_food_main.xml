@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/loupecad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@mipmap/loupe_caddie"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_above="@+id/butfavoris" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -12,7 +23,7 @@
         android:layout_marginTop="17dp"
         android:gravity="center"
         android:text="Welcome to ChowDetails! "
-        android:textColor="#0011ff"
+        android:textColor="@color/red"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
@@ -43,10 +54,10 @@
         android:elevation="24dp"
         app:srcCompat="@android:drawable/ic_search_category_default"
         android:background="@android:color/transparent"
-        android:layout_below="@+id/search"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
-
+        android:layout_alignTop="@+id/search"
+        android:layout_toRightOf="@+id/search"
+        android:layout_toEndOf="@+id/search"
+        />
 
     <TextView
         android:id="@+id/result"
@@ -56,5 +67,7 @@
         android:layout_marginBottom="53dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+
 
 </RelativeLayout>
