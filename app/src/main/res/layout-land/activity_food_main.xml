@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Welcome to ChowDetails! "
+        android:text="Welcome to ChowDetails!"
         android:textColor="#0011ff"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -28,11 +28,10 @@
         android:id="@+id/butfavoris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Favorite"
+        android:text="Favorites"
         android:layout_marginTop="23dp"
         android:layout_below="@+id/butfind"
         android:layout_centerHorizontal="true" />
-
     <ImageButton
         android:id="@+id/butfind"
         android:layout_width="wrap_content"
@@ -44,13 +43,11 @@
         android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
-
-
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="More Option to come!!!"
+        android:text="More option to come!!!"
         android:layout_below="@+id/butfavoris"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
