@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:gravity="center"
-        android:text="Welcome to ChowDetails! "
+        android:text="Welcome to ChowDetails!"
         android:textColor="@color/red"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -40,7 +40,7 @@
         android:id="@+id/butfavoris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Favorite"
+        android:text="Favorites"
         android:layout_marginBottom="23dp"
         android:layout_above="@+id/result"
         android:layout_alignLeft="@+id/result"
@@ -63,8 +63,17 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="More Option to come!!!"
+        android:text="More options to come!!!"
         android:layout_marginBottom="53dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button android:id="@+id/scan_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan"
+        android:layout_alignTop="@+id/loupecad"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginTop="17dp" />
 </RelativeLayout>

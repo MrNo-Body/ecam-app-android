@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.Menu;
@@ -29,7 +28,7 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        themeUtils.onActivityCreateSetTheme(this);
+        ThemeUtils.onActivityCreateSetTheme(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -51,22 +50,22 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         if(nightmode)
         {
             spinnerColorPos = 0;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLACK);
         }
         else if (blue)
         {
             spinnerColorPos = 1;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLUE);
         }
         else if (red)
         {
             spinnerColorPos = 2;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.RED);
         }
         else if (green)
         {
             spinnerColorPos = 3;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.GREEN);
         }
 
         else
@@ -90,8 +89,6 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         //to display back arrow
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        // Intent intent = getIntent();
         //Listener on Button
         Button button02 = (Button) findViewById(R.id.button02);
         button02.setOnClickListener(this);
@@ -108,7 +105,7 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         ArrayAdapter<CharSequence> AllergieAdapter = ArrayAdapter.createFromResource(this,
                 R.array.allergieSpinArray, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
-        //todo verifié si je peux changer la couleur là dedans
+
         ColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         PoliceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AllergieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -151,19 +148,18 @@ public void onBackPressed() {
                                int pos, long id) {
         switch (parent.getItemAtPosition(pos).toString()) {
 
-            case "Petit":
-                //TODO set le text en petit
-                themeUtils.changeToTheme(this, themeUtils.Petit);
+            case "Small":
+
+                ThemeUtils.changeToTheme(this, ThemeUtils.Petit);
                 break;
             case "Normal":
-                //TODO set le text en normal
-               //themeUtils.changeToTheme(this, themeUtils.Normal);
                 break;
-            case "Grand":
-                //TODO set le text en grand
-                themeUtils.changeToTheme(this, themeUtils.Grand);
+            case "Big":
+
+                ThemeUtils.changeToTheme(this, ThemeUtils.Grand);
                 break;
-            case "Blanc":
+            case "White":
+
                 if ((red || blue || green || nightmode) && (spinnerColorPos != 0)) {
                     blue = false;
                     white = false;
@@ -180,10 +176,11 @@ public void onBackPressed() {
                             .putBoolean("blueColor", blue).commit();
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
-                    themeUtils.changeToTheme(this, themeUtils.WHITE);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.WHITE);
                 }
+
                 break;
-            case "Bleu":
+            case "Blue":
                 if (spinnerColorPos != 1) {
                     blue = true;
                     white = false;
@@ -201,10 +198,10 @@ public void onBackPressed() {
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
 
-                    themeUtils.changeToTheme(this, themeUtils.BLUE);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
                 }
                 break;
-            case "Rouge":
+            case "Red":
                 if (spinnerColorPos != 2) {
                     red = true;
                     white = false;
@@ -222,11 +219,11 @@ public void onBackPressed() {
                             .putBoolean("blueColor", blue).commit();
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
-                    themeUtils.changeToTheme(this, themeUtils.RED);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.RED);
                 }
 
                 break;
-            case "Vert":
+            case "Green":
                 if(spinnerColorPos!=3) {
                     green = true;
                     white = false;
@@ -243,21 +240,21 @@ public void onBackPressed() {
                             .putBoolean("blueColor", blue).commit();
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
-                    themeUtils.changeToTheme(this, themeUtils.GREEN);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.GREEN);
                 }
 
                 break;
-            case "Arachide":
-                //todo set allergie Archadie
+            case "Peanut":
+
                 break;
             case "Lactose":
-                //todo set allergie Lactose
+
                 break;
             case "Gluten":
-                //todo set allergie Gluten
+
                 break;
             default:
-                //Todo charger les données de la base de données
+
         }
 
 
@@ -290,11 +287,14 @@ public void onCheckboxClicked(View view) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("blueColor", blue).commit();
 
-                //Todo Enregistrer dans BD
-                themeUtils.changeToTheme(this, themeUtils.BLACK);
+
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLACK);
             }
             else
             {
+
+                ThemeUtils.changeToTheme(this, ThemeUtils.WHITE);
+
                 nightmode = false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxNight", nightmode).commit();
@@ -311,8 +311,9 @@ public void onCheckboxClicked(View view) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("blueColor", blue).commit();
                 if(!(red||blue||green||white)) {
-                    themeUtils.changeToTheme(this, themeUtils.WHITE);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.WHITE);
                 }
+
             }
             break;
 
@@ -322,10 +323,10 @@ public void onCheckboxClicked(View view) {
                 photomode = true;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxPhoto", photomode).commit();
-
             }
             else
             {
+
                 photomode= false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxPhoto", photomode).commit();

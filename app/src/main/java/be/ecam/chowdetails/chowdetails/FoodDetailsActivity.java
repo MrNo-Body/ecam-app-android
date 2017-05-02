@@ -1,16 +1,10 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,19 +12,8 @@ import android.view.MenuItem;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.Toast;
-import android.widget.ToggleButton;
-
-import org.w3c.dom.Text;
-
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity {
@@ -40,15 +23,16 @@ public class FoodDetailsActivity extends AppCompatActivity {
     private CheckBox favorite;
     Context context = this;
     Class destinationClass;
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //------------------COLOR THE WORLD!!!-------------------
-        themeUtils.onActivityCreateSetTheme(this);
+        ThemeUtils.onActivityCreateSetTheme(this);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         nightmode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxNight", false);
-        photomode = PreferenceManager.getDefaultSharedPreferences(this)//Utilise cette variable dans un if pour activer ou non les photo
+            //Utilise cette variable dans un if pour activer ou non les photo
+        photomode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxPhoto", false);
         red = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("redColor", false);
@@ -58,19 +42,19 @@ public class FoodDetailsActivity extends AppCompatActivity {
                 .getBoolean("greenColor", false);
         if(nightmode)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLACK);
         }
         else if (blue)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLUE);
         }
         else if (red)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.RED);
         }
         else if (green)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.GREEN);
         }
         else
         {}
@@ -167,8 +151,6 @@ public class FoodDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case android.R.id.home:
-                //onBackPressed();
-                //Intent result = new Intent();
 
                 setResult(RESULT_OK, new Intent());
 

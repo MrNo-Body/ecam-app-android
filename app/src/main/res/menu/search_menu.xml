@@ -2,14 +2,6 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!-- I prefer the search in the toolbar so i removed this
-    <item
-        android:id="@+id/search_button"
-        android:title="@string/search_H"
-        android:icon="@mipmap/ic_launcher"
-        android:showAsAction="collapseActionView"
-        android:actionViewClass="android.widget.SearchView"
-        tools:ignore="AppCompatResource" />-->
 
         <item android:id="@+id/action_search"
             android:title="Search"

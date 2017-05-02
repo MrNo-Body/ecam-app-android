@@ -3,7 +3,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 
-public class themeUtils
+public class ThemeUtils
 
 {
 
@@ -28,7 +28,6 @@ public class themeUtils
     public static void changeToTheme(Activity activity, int theme)
 
     {
-
 
         cTheme = theme;
 

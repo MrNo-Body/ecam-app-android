@@ -1,7 +1,5 @@
 package be.ecam.chowdetails.chowdetails;
 
-import android.app.Activity;
-import android.app.ListActivity;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -9,29 +7,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Contacts;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by yas on 25/04/2017.
  */
 
 public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapter.ItemAdapterOnClickHandler {
-    public boolean blue, red, white, green, photomode, nightmode = false;
+    public boolean blue, red, green, photomode, nightmode = false;
     private RecyclerView resultView;
     private ItemAdapter itemAdapter;
     Context context = this;
@@ -41,7 +28,7 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //------------------COLOR THE WORLD!!!-------------------
-        themeUtils.onActivityCreateSetTheme(this);
+        ThemeUtils.onActivityCreateSetTheme(this);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         nightmode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxNight", false);
@@ -55,19 +42,19 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
                 .getBoolean("greenColor", false);
         if(nightmode)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLACK);
         }
         else if (blue)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLUE);
         }
         else if (red)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.RED);
         }
         else if (green)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.GREEN);
         }
         else
         {}
@@ -86,12 +73,6 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         itemAdapter = new ItemAdapter(this);
         resultView.setAdapter(itemAdapter);
 
-
-        //To fix the bug it's better to put these lign in the foodmain activity class
-        //When whe push the button to go to the favorite page
-        /*FoodDBHelper food_db = new FoodDBHelper(this);
-        FoodList.setFoods(food_db.getFoods());
-        */
         itemAdapter.setData(FoodList.getFoods());
     }
         
@@ -100,10 +81,10 @@ public class FoodFavoriteActivity extends AppCompatActivity implements ItemAdapt
         inflater.inflate(R.menu.menu, menu);
         inflater.inflate(R.menu.search_menu,menu);
         inflater.inflate(R.menu.refresh_menu,menu);
-        //inflater.inflate(R.menu.refresh_menu,menu);
         MenuItem item=menu.findItem(R.id.action_search);
         SearchView searchView=(SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
             @Override
             public boolean onQueryTextSubmit(String query){
                 destinationClass = FoodSearchActivity.class;
