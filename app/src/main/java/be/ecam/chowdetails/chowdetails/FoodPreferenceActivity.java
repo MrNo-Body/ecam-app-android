@@ -90,8 +90,6 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         //to display back arrow
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        // Intent intent = getIntent();
         //Listener on Button
         Button button02 = (Button) findViewById(R.id.button02);
         button02.setOnClickListener(this);
@@ -108,7 +106,7 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         ArrayAdapter<CharSequence> AllergieAdapter = ArrayAdapter.createFromResource(this,
                 R.array.allergieSpinArray, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
-        //todo verifié si je peux changer la couleur là dedans
+
         ColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         PoliceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AllergieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -152,18 +150,17 @@ public void onBackPressed() {
         switch (parent.getItemAtPosition(pos).toString()) {
 
             case "Petit":
-                //TODO set le text en petit
+
                 themeUtils.changeToTheme(this, themeUtils.Petit);
                 break;
             case "Normal":
-                //TODO set le text en normal
-               //themeUtils.changeToTheme(this, themeUtils.Normal);
                 break;
             case "Grand":
-                //TODO set le text en grand
+
                 themeUtils.changeToTheme(this, themeUtils.Grand);
                 break;
             case "Blanc":
+
                 if ((red || blue || green || nightmode) && (spinnerColorPos != 0)) {
                     blue = false;
                     white = false;
@@ -182,6 +179,7 @@ public void onBackPressed() {
                             .putBoolean("greenColor", green).commit();
                     themeUtils.changeToTheme(this, themeUtils.WHITE);
                 }
+
                 break;
             case "Bleu":
                 if (spinnerColorPos != 1) {
@@ -248,16 +246,16 @@ public void onBackPressed() {
 
                 break;
             case "Arachide":
-                //todo set allergie Archadie
+
                 break;
             case "Lactose":
-                //todo set allergie Lactose
+
                 break;
             case "Gluten":
-                //todo set allergie Gluten
+
                 break;
             default:
-                //Todo charger les données de la base de données
+
         }
 
 
@@ -290,11 +288,14 @@ public void onCheckboxClicked(View view) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("blueColor", blue).commit();
 
-                //Todo Enregistrer dans BD
+
                 themeUtils.changeToTheme(this, themeUtils.BLACK);
             }
             else
             {
+
+                themeUtils.changeToTheme(this, themeUtils.WHITE);
+
                 nightmode = false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxNight", nightmode).commit();
@@ -313,6 +314,7 @@ public void onCheckboxClicked(View view) {
                 if(!(red||blue||green||white)) {
                     themeUtils.changeToTheme(this, themeUtils.WHITE);
                 }
+
             }
             break;
 
@@ -322,10 +324,10 @@ public void onCheckboxClicked(View view) {
                 photomode = true;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxPhoto", photomode).commit();
-
             }
             else
             {
+
                 photomode= false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("checkBoxPhoto", photomode).commit();

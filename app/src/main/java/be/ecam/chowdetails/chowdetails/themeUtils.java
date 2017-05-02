@@ -29,7 +29,6 @@ public class themeUtils
 
     {
 
-
         cTheme = theme;
 
         activity.finish();

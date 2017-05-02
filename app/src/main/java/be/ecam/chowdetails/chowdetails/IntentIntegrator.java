@@ -16,6 +16,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+
 public class IntentIntegrator {
     public static final int REQUEST_CODE = 0x0000c0de; // Only use bottom 16 bits
     private static final String TAG = IntentIntegrator.class.getSimpleName();
@@ -26,6 +27,7 @@ public class IntentIntegrator {
     public static final String DEFAULT_NO = "No";
     private static final String BS_PACKAGE = "com.google.zxing.client.android";
     private static final String BSPLUS_PACKAGE = "com.srowen.bs.android";
+
     // supported barcode formats
     public static final Collection<String> PRODUCT_CODE_TYPES = list("UPC_A", "UPC_E", "EAN_8", "EAN_13", "RSS_14");
     public static final Collection<String> ONE_D_CODE_TYPES =
@@ -39,6 +41,7 @@ public class IntentIntegrator {
             BS_PACKAGE, // Barcode Scanner
             BSPLUS_PACKAGE, // Barcode Scanner+
             BSPLUS_PACKAGE + ".simple" // Barcode Scanner+ Simple
+
 // What else supports this intent?
     );
     private final Activity activity;
@@ -57,6 +60,7 @@ public class IntentIntegrator {
         targetApplications = TARGET_ALL_KNOWN;
         moreExtras = new HashMap<String,Object>(3);
     }
+
     public String getTitle() {
         return title;
     }
@@ -117,9 +121,10 @@ public class IntentIntegrator {
     public final AlertDialog initiateScan(Collection<String> desiredBarcodeFormats) {
         Intent intentScan = new Intent(BS_PACKAGE + ".SCAN");
         intentScan.addCategory(Intent.CATEGORY_DEFAULT);
+
 // check which types of codes to scan for
         if (desiredBarcodeFormats != null) {
-// set the desired barcode types
+            // set the desired barcode types
             StringBuilder joinedByComma = new StringBuilder();
             for (String format : desiredBarcodeFormats) {
                 if (joinedByComma.length() > 0) {
@@ -169,6 +174,7 @@ public class IntentIntegrator {
                 try {
                     activity.startActivity(intent);
                 } catch (ActivityNotFoundException anfe) {
+
 // Hmm, market is not installed
                     Log.w(TAG, "Google Play is not installed; cannot install " + packageName);
                 }
