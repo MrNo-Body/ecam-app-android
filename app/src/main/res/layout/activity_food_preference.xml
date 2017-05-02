@@ -105,34 +105,32 @@
 
     <Spinner
         android:id="@+id/colorSpin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignTop="@+id/textView4"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_alignRight="@+id/checkBoxNight"
-        android:layout_alignEnd="@+id/checkBoxNight"
-        android:background="@color/transparent" />
+        android:background="@color/transparent"
+        android:layout_alignLeft="@+id/checkBoxNight"
+        android:layout_alignStart="@+id/checkBoxNight"
+        android:layout_toStartOf="@+id/tpoliceSpin"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/textView5" />
 
     <Spinner
         android:id="@+id/tpoliceSpin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/checkBoxPhoto"
-        android:layout_alignRight="@+id/checkBoxPhoto"
         android:layout_alignTop="@+id/textView2"
-        android:layout_toRightOf="@+id/textView1" />
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_alignBottom="@+id/textView2" />
 
     <Spinner
         android:id="@+id/allergieSpin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView5"
-        android:layout_alignRight="@+id/button02"
-        android:layout_alignEnd="@+id/button02"
-        android:layout_toRightOf="@+id/colorSpin"
-        android:layout_toEndOf="@+id/colorSpin" />
+        android:layout_alignLeft="@+id/checkBoxPhoto"
+        android:layout_alignStart="@+id/checkBoxPhoto" />
 
     <Space
         android:layout_width="wrap_content"

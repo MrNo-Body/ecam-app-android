@@ -3,32 +3,32 @@
     <string name="ActiFood">ActiFood</string>
     <string name="PrefText">Preferences</string>
     <string name="Menu">Menu</string>
-    <string name="Option">Option</string>
-    <string name="Favorite">Favorite</string>
-    <string name="TailleCara">Taille Caractère:</string>
-    <string name="Color">Couleur:</string>
-    <string name="Alergie">Allergies/Intolerance:</string>
-    <string name="Photo">Afficher la photo des aliments:</string>
-    <string name="Night">Activer le mode nuit:</string>
-    <string name="Maj">Mettre à jour la base de donnée?</string>
-    <string name="search_H">Recherche</string>
+    <string name="Option">Options</string>
+    <string name="Favorite">Favorites</string>
+    <string name="TailleCara">Character size:</string>
+    <string name="Color">Color:</string>
+    <string name="Alergie">Allergy/Intolerance:</string>
+    <string name="Photo">Show food\s picture:</string>
+    <string name="Night">Night mode:</string>
+    <string name="Maj">Database update</string>
+    <string name="search_H">Search</string>
 
     <string-array name="ColorSpinArray">
-        <item>Blanc</item>
-        <item>Bleu</item>
-        <item>Rouge</item>
-        <item>Vert</item>
+        <item>White</item>
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
     </string-array>
 
     <string-array name="TpoliceSpinArray">
         <item>Normal</item>
-        <item>Petit</item>
-        <item>Grand</item>
+        <item>Small</item>
+        <item>Big</item>
     </string-array>
 
     <string-array name="allergieSpinArray">
         <item> </item>
-        <item>Arachide</item>
+        <item>Peanut</item>
         <item>Lactose</item>
         <item>Gluten</item>
     </string-array>

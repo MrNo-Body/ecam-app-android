@@ -148,17 +148,17 @@ public void onBackPressed() {
                                int pos, long id) {
         switch (parent.getItemAtPosition(pos).toString()) {
 
-            case "Petit":
+            case "Small":
 
                 ThemeUtils.changeToTheme(this, ThemeUtils.Petit);
                 break;
             case "Normal":
                 break;
-            case "Grand":
+            case "Big":
 
                 ThemeUtils.changeToTheme(this, ThemeUtils.Grand);
                 break;
-            case "Blanc":
+            case "White":
 
                 if ((red || blue || green || nightmode) && (spinnerColorPos != 0)) {
                     blue = false;
@@ -180,7 +180,7 @@ public void onBackPressed() {
                 }
 
                 break;
-            case "Bleu":
+            case "Blue":
                 if (spinnerColorPos != 1) {
                     blue = true;
                     white = false;
@@ -201,7 +201,7 @@ public void onBackPressed() {
                     ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
                 }
                 break;
-            case "Rouge":
+            case "Red":
                 if (spinnerColorPos != 2) {
                     red = true;
                     white = false;
@@ -223,7 +223,7 @@ public void onBackPressed() {
                 }
 
                 break;
-            case "Vert":
+            case "Green":
                 if(spinnerColorPos!=3) {
                     green = true;
                     white = false;
@@ -244,7 +244,7 @@ public void onBackPressed() {
                 }
 
                 break;
-            case "Arachide":
+            case "Peanut":
 
                 break;
             case "Lactose":
