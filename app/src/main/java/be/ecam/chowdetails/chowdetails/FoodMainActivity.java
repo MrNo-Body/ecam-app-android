@@ -31,7 +31,7 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        themeUtils.onActivityCreateSetTheme(this);
+        ThemeUtils.onActivityCreateSetTheme(this);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         nightmode = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean("checkBoxNight", false);
@@ -45,19 +45,19 @@ public class FoodMainActivity extends AppCompatActivity implements OnClickListen
                 .getBoolean("greenColor", false);
         if(nightmode)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLACK);
         }
         else if (blue)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLUE);
         }
         else if (red)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.RED);
         }
         else if (green)
         {
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.GREEN);
         }
         else
         {}

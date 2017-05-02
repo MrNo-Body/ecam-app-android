@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.Menu;
@@ -29,7 +28,7 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        themeUtils.onActivityCreateSetTheme(this);
+        ThemeUtils.onActivityCreateSetTheme(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -51,22 +50,22 @@ public class FoodPreferenceActivity extends AppCompatActivity implements OnClick
         if(nightmode)
         {
             spinnerColorPos = 0;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLACK);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLACK);
         }
         else if (blue)
         {
             spinnerColorPos = 1;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.BLUE);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.BLUE);
         }
         else if (red)
         {
             spinnerColorPos = 2;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.RED);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.RED);
         }
         else if (green)
         {
             spinnerColorPos = 3;
-            themeUtils.onActivityCreateSetTheme(this, themeUtils.GREEN);
+            ThemeUtils.onActivityCreateSetTheme(this, ThemeUtils.GREEN);
         }
 
         else
@@ -151,13 +150,13 @@ public void onBackPressed() {
 
             case "Petit":
 
-                themeUtils.changeToTheme(this, themeUtils.Petit);
+                ThemeUtils.changeToTheme(this, ThemeUtils.Petit);
                 break;
             case "Normal":
                 break;
             case "Grand":
 
-                themeUtils.changeToTheme(this, themeUtils.Grand);
+                ThemeUtils.changeToTheme(this, ThemeUtils.Grand);
                 break;
             case "Blanc":
 
@@ -177,7 +176,7 @@ public void onBackPressed() {
                             .putBoolean("blueColor", blue).commit();
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
-                    themeUtils.changeToTheme(this, themeUtils.WHITE);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.WHITE);
                 }
 
                 break;
@@ -199,7 +198,7 @@ public void onBackPressed() {
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
 
-                    themeUtils.changeToTheme(this, themeUtils.BLUE);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
                 }
                 break;
             case "Rouge":
@@ -220,7 +219,7 @@ public void onBackPressed() {
                             .putBoolean("blueColor", blue).commit();
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
-                    themeUtils.changeToTheme(this, themeUtils.RED);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.RED);
                 }
 
                 break;
@@ -241,7 +240,7 @@ public void onBackPressed() {
                             .putBoolean("blueColor", blue).commit();
                     PreferenceManager.getDefaultSharedPreferences(this).edit()
                             .putBoolean("greenColor", green).commit();
-                    themeUtils.changeToTheme(this, themeUtils.GREEN);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.GREEN);
                 }
 
                 break;
@@ -289,12 +288,12 @@ public void onCheckboxClicked(View view) {
                         .putBoolean("blueColor", blue).commit();
 
 
-                themeUtils.changeToTheme(this, themeUtils.BLACK);
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLACK);
             }
             else
             {
 
-                themeUtils.changeToTheme(this, themeUtils.WHITE);
+                ThemeUtils.changeToTheme(this, ThemeUtils.WHITE);
 
                 nightmode = false;
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
@@ -312,7 +311,7 @@ public void onCheckboxClicked(View view) {
                 PreferenceManager.getDefaultSharedPreferences(this).edit()
                         .putBoolean("blueColor", blue).commit();
                 if(!(red||blue||green||white)) {
-                    themeUtils.changeToTheme(this, themeUtils.WHITE);
+                    ThemeUtils.changeToTheme(this, ThemeUtils.WHITE);
                 }
 
             }
